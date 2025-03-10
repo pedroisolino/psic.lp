@@ -51,16 +51,18 @@
             margin: 0;
             line-height: 1;
             font-family: 'Poppins', sans-serif;
+            color: aliceblue;
         }
 
         .logo .subtitle {
             display: flex;
             gap: 1rem;
             margin-top: 0.3rem;
+            
         }
 
         .logo .subtitle span {
-            color: var(--cor-2);
+            color: aliceblue;
             font-size: 0.9rem;
             font-weight: 400;
             letter-spacing: 0.5px;
@@ -73,6 +75,8 @@
             display: flex;
             align-items: center;
             padding: 90px 5% 0;
+            position: relative;
+            z-index: 1; /* Garante que o banner fique acima do fundo */
         }
 
         .banner-container {
@@ -80,9 +84,9 @@
             align-items: center;
             gap: 3rem; /* Reduzido o gap para aproximar os elementos */
             max-width: var(--max-width);
-            margin: 0 auto;
             width: 100%;
             height: 70vh;
+            min-height: 700px;
         }
 
         .banner-texto {
@@ -113,26 +117,28 @@
             position: relative;
             display: flex;
             justify-content: center;
+            z-index: 1; /* Garante que a imagem fique atrás do texto */
         }
 
         .banner-imagem img {
             width: 85%;
             max-width: 500px;
-            height: 600px;
-            border-radius: var(--borda-redonda);
+            height: 700px;
             object-fit: cover;
             object-position: top;
             box-shadow: var(--sombra);
             transform: rotate(3deg);
             transition: var(--transicao);
+            margin-bottom: -50px; /* Faz a imagem sobrepor a seção abaixo */
         }
 
         /* Seção Sobre Mim */
         .sobre-mim {
-            padding: 8% 5%;
+            padding: 8% 5% 12%; /* Aumentei o padding-bottom para acomodar a sobreposição */
             background-color: var(--cor-2);
             position: relative;
             overflow: hidden; /* Garante que o conteúdo fora do quadro não seja exibido */
+            z-index: 2; /* Garante que a seção fique acima da imagem do banner */
         }
 
         .sobre-mim-conteudo {
@@ -298,6 +304,7 @@
             display: inline-block;
             font-family: 'Poppins', sans-serif;
             font-weight: 500;
+            margin-bottom: 20px;
         }
 
         .cta-button:hover {
@@ -335,6 +342,7 @@
             }
 
             .banner-texto p {
+                font-size: 1rem;
                 margin: 0 auto 2rem;
             }
 
@@ -342,6 +350,7 @@
                 max-width: 300px;
                 height: 400px;
                 transform: none;
+                margin-bottom: -30px; /* Ajuste para mobile */
             }
 
             .grid-desafios {
@@ -362,21 +371,43 @@
         }
 
         @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+
+            .logo .subtitle span {
+                font-size: 0.7rem;
+            }
+
             .banner-texto h2 {
                 font-size: 2rem;
             }
 
+            .banner-texto p {
+                font-size: 0.9rem;
+            }
+
             .banner-imagem img {
                 height: 300px;
+                margin-bottom: -20px; /* Ajuste para mobile */
             }
 
             .cta-button {
                 width: 100%;
                 padding: 1rem;
+                font-size: 1rem;
             }
 
             .sobre-mim-conteudo {
                 padding: 1.5rem 1rem;
+            }
+
+            .sobre-mim-slide h3 {
+                font-size: 1.5rem;
+            }
+
+            .sobre-mim-slide p {
+                font-size: 0.9rem;
             }
         }
     </style>
