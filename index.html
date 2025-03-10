@@ -6,6 +6,7 @@
     <title>Psicólogo Iago Benacci</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         :root {
             --cor-1: #003b6f;
@@ -58,7 +59,6 @@
             display: flex;
             gap: 1rem;
             margin-top: 0.3rem;
-            
         }
 
         .logo .subtitle span {
@@ -87,7 +87,7 @@
             width: 100%;
             height: 70vh;
             min-height: 700px;
-            margin: 0 auto;
+            margin:0 auto;
         }
 
         .banner-texto {
@@ -313,6 +313,39 @@
             box-shadow: var(--sombra);
         }
 
+        /* Botão Flutuante do WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 15px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 1px 1px 2px #888;
+            z-index: 1000;
+            animation: pulse 1.5s infinite;
+        }
+
+        .whatsapp-float i {
+            margin-top: 16px;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
         /* Responsividade */
         @media (max-width: 768px) {
             .faixa-inicial {
@@ -429,9 +462,9 @@
     <section class="banner">
         <div style="text-align:center;" class="banner-container">
             <div class="banner-texto">
-                <h2>Terapia Personalizada para Você</h2>
-                <p>Construindo a ponte entre você e os seus objetivos.</p>
-                <button class="cta-button">Iniciar jornada terapêutica</button>
+                <h2>Encontre Equilíbrio e Bem-Estar Emocional</h2>
+                <p>Ansiedade, depressão e estresse são desafios comuns que podem afetar qualquer pessoa. Você não está sozinho. Com uma abordagem humanizada e personalizada, eu te ajudo a superar esses obstáculos e reconquistar a qualidade de vida que você merece.</p>
+                <button class="cta-button">Agende sua Consulta <i class="fa fa-whatsapp logo-whatsapp" style="font-size:30px; color:#25D366"></i></button>
             </div>
             <div class="banner-imagem">
                 <img src="img/perfil.png" alt="Iago Benacci">
@@ -451,8 +484,8 @@
                     <p>Trabalho com adultos, adolescentes e casais, ajudando a lidar com questões como ansiedade, depressão, relacionamentos e desenvolvimento pessoal. Cada cliente é único, e minha abordagem é sempre personalizada.</p>
                 </div>
                 <div class="sobre-mim-slide">
-                    <h3>Hobby como Lutador</h3>
-                    <p>Fora do consultório, sou um entusiasta de artes marciais. A prática de lutas me ensinou disciplina, resiliência e a importância do equilíbrio entre corpo e mente, valores que também aplico na minha prática clínica.</p>
+                    <h3>Tipos de Atendimento</h3>
+                    <p>Ofereço atendimento <strong>presencial</strong> em Itapira-SP e <strong>online</strong> para todo o Brasil. A terapia online é tão eficaz quanto a presencial, com a comodidade de ser feita no conforto da sua casa.</p>
                 </div>
             </div>
             <div class="sobre-mim-navegacao">
@@ -467,18 +500,18 @@
         <div class="grid-desafios">
             <div class="card-desafio">
                 <i class="fas fa-brain"></i>
-                <h4>Padrões Cognitivos</h4>
-                <p>Identificação e transformação de hábitos mentais que limitam o potencial</p>
+                <h4>Ansiedade</h4>
+                <p>Aprenda a gerenciar preocupações excessivas e recupere o controle da sua vida.</p>
             </div>
             <div class="card-desafio">
                 <i class="fas fa-heartbeat"></i>
-                <h4>Equilíbrio Emocional</h4>
-                <p>Gestão de estados internos e desenvolvimento de resiliência</p>
+                <h4>Depressão</h4>
+                <p>Encontre apoio para superar a tristeza profunda e redescobrir a alegria de viver.</p>
             </div>
             <div class="card-desafio">
                 <i class="fas fa-hands-helping"></i>
-                <h4>Dinâmicas Relacionais</h4>
-                <p>Construção de conexões saudáveis e comunicação assertiva</p>
+                <h4>Relacionamentos</h4>
+                <p>Melhore a comunicação e construa conexões mais saudáveis e significativas.</p>
             </div>
         </div>
     </section>
@@ -486,19 +519,19 @@
     <section class="faixa-3" id="abordagem">
         <div class="abordagem-container">
             <div>
-                <h3 style="color: var(--cor-2); margin-bottom: 2rem; font-size: 2.2rem;">Navegando por Tempestades Internas</h3>
+                <h3 style="color: var(--cor-2); margin-bottom: 2rem; font-size: 2.2rem;">Como Posso Te Ajudar?</h3>
                 <div class="metodo-item">
                     <i class="fas fa-compass"></i>
                     <div>
-                        <h4 style="color: var(--cor-2);">Orientação Personalizada</h4>
-                        <p style="color: var(--cor-2);">Estratégias adaptadas à sua realidade pessoal</p>
+                        <h4 style="color: var(--cor-2);">Abordagem Humanizada</h4>
+                        <p style="color: var(--cor-2);">Cada pessoa é única, e o tratamento é adaptado às suas necessidades e objetivos.</p>
                     </div>
                 </div>
                 <div class="metodo-item">
                     <i class="fas fa-seedling"></i>
                     <div>
-                        <h4 style="color: var(--cor-2);">Crescimento Progressivo</h4>
-                        <p style="color: var(--cor-2);">Desenvolvimento contínuo de recursos internos</p>
+                        <h4 style="color: var(--cor-2);">Resultados Progressivos</h4>
+                        <p style="color: var(--cor-2);">Trabalhamos juntos para alcançar mudanças duradouras e significativas.</p>
                     </div>
                 </div>
             </div>
@@ -509,12 +542,15 @@
         <div>
             <p>© 2025 Iago Benacci | CRP 06/135768</p>
             <div style="margin-top: 1rem;">
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="far fa-envelope"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%2C%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta."><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
     </section>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%2C%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta." class="whatsapp-float" target="_blank">
+        <i class="fa fa-whatsapp"></i>
+    </a>
 
     <script>
         const slides = document.querySelector('.sobre-mim-container');
