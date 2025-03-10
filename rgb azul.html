@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psicólogo Iago Benacci</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --cor-1: #566777;
-            --cor-2: #95a7b1;
-            --cor-3: #e1ded7;
+            --cor-1: #003b6f;
+            --cor-2: #6f8ea9;
+            --cor-3: #a6b8c7;
             --sombra: 0 4px 20px rgba(0,0,0,0.1);
             --borda-redonda: 15px;
             --transicao: all 0.3s ease;
+            --max-width: 1200px; /* Largura máxima para centralização */
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Open Sans', sans-serif;
         }
 
         body {
@@ -30,7 +32,7 @@
 
         /* Header */
         .faixa-inicial {
-            height: 90px; /* Aumentamos a altura para acomodar as duas linhas */
+            height: 90px;
             background-color: var(--cor-1);
             padding: 0 5%;
             position: fixed;
@@ -45,9 +47,10 @@
             color: var(--cor-2);
             font-size: 2.2rem;
             letter-spacing: -1px;
-            font-weight: 300;
+            font-weight: 600;
             margin: 0;
             line-height: 1;
+            font-family: 'Poppins', sans-serif;
         }
 
         .logo .subtitle {
@@ -61,6 +64,7 @@
             font-size: 0.9rem;
             font-weight: 400;
             letter-spacing: 0.5px;
+            font-family: 'Open Sans', sans-serif;
         }
 
         /* Banner Principal */
@@ -68,17 +72,17 @@
             min-height: 60vh;
             display: flex;
             align-items: center;
-            padding: 90px 5% 0; /* Ajuste no padding-top para o novo header */
+            padding: 90px 5% 0;
         }
 
         .banner-container {
             display: flex;
             align-items: center;
-            gap: 4rem;
-            max-width: 1200px;
+            gap: 3rem; /* Reduzido o gap para aproximar os elementos */
+            max-width: var(--max-width);
             margin: 0 auto;
             width: 100%;
-            height:70vh;
+            height: 70vh;
         }
 
         .banner-texto {
@@ -92,7 +96,8 @@
             color: var(--cor-1);
             margin-bottom: 1.5rem;
             line-height: 1.2;
-            font-weight: 500;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
         }
 
         .banner-texto p {
@@ -100,6 +105,7 @@
             color: var(--cor-1);
             margin-bottom: 2rem;
             max-width: 500px;
+            font-family: 'Open Sans', sans-serif;
         }
 
         .banner-imagem {
@@ -116,7 +122,6 @@
             border-radius: var(--borda-redonda);
             object-fit: cover;
             object-position: top;
-            border: 5px solid white;
             box-shadow: var(--sombra);
             transform: rotate(3deg);
             transition: var(--transicao);
@@ -127,6 +132,7 @@
             padding: 8% 5%;
             background-color: var(--cor-2);
             position: relative;
+            overflow: hidden; /* Garante que o conteúdo fora do quadro não seja exibido */
         }
 
         .sobre-mim-conteudo {
@@ -137,6 +143,7 @@
             border-radius: var(--borda-redonda);
             box-shadow: var(--sombra);
             position: relative;
+            overflow: hidden; /* Oculta o conteúdo que ultrapassa o quadro */
         }
 
         .sobre-mim-conteudo:before {
@@ -152,19 +159,23 @@
 
         .sobre-mim-container {
             display: flex;
-            transition: transform 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.5s ease-in-out;
+            width: 100%; /* Ajuste para 3 slides */
         }
 
         .sobre-mim-slide {
-            flex: 0 0 100%;
+            flex: 0 0 100%; /* Cada slide ocupa 100% do contêiner */
             padding: 1rem;
             text-align: center;
+            box-sizing: border-box;
         }
 
         .sobre-mim-slide h3 {
             font-size: 2rem;
             color: var(--cor-1);
             margin-bottom: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
         }
 
         .sobre-mim-slide p {
@@ -173,6 +184,7 @@
             color: #666;
             max-width: 600px;
             margin: 0 auto;
+            font-family: 'Open Sans', sans-serif;
         }
 
         .sobre-mim-navegacao {
@@ -208,7 +220,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            max-width: 1200px;
+            max-width: var(--max-width);
             margin: 0 auto;
         }
 
@@ -238,7 +250,7 @@
         }
 
         .abordagem-container {
-            max-width: 1200px;
+            max-width: var(--max-width);
             margin: 0 auto;
         }
 
@@ -284,6 +296,8 @@
             cursor: pointer;
             transition: var(--transicao);
             display: inline-block;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
         }
 
         .cta-button:hover {
