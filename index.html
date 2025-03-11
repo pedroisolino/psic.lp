@@ -179,7 +179,11 @@
             }
 
             .banner-imagem img {
-                height: 250px;
+                height: 300px; /* Aumentei a altura da imagem */
+                width: 100%; /* Faz a imagem ocupar a largura total */
+                object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+                border-radius: 1rem; /* Ajustei o border-radius para ficar mais proporcional */
+                margin-bottom: 25px;
             }
 
             .cta-button {
@@ -188,6 +192,56 @@
 
             .cta-button-mobile {
                 display: inline-block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+
+            .logo .subtitle span {
+                font-size: 0.7rem;
+            }
+
+            .banner-texto h2 {
+                font-size: 1.8rem;
+            }
+
+            .banner-texto p {
+                font-size: 0.9rem;
+            }
+
+            .banner-imagem img {
+                height: 250px; /* Ajustei a altura para telas muito pequenas */
+            }
+
+            .sobre-mim-conteudo {
+                padding: 1rem;
+            }
+
+            .sobre-mim-slide h3 {
+                font-size: 1.2rem;
+            }
+
+            .sobre-mim-slide p {
+                font-size: 0.8rem;
+            }
+
+            .grid-desafios {
+                grid-template-columns: 1fr; /* 1 item por linha em telas muito pequenas */
+            }
+
+            .card-desafio {
+                padding: 1rem;
+            }
+
+            .card-desafio i {
+                font-size: 1.5rem;
+            }
+
+            .metodo-item i {
+                font-size: 1.5rem;
             }
         }
 
@@ -222,6 +276,7 @@
             text-align: center;
             box-sizing: border-box;
             display: none; /* Oculta todos os slides por padrão */
+            max-height:50%;
         }
 
         .sobre-mim-slide.ativo {
@@ -393,59 +448,11 @@
             .grid-desafios {
                 grid-template-columns: repeat(2, 1fr); /* 2 itens por linha em telas menores */
             }
-
-            .banner-imagem img{
-                margin-bottom:25px;
-            }
         }
 
         @media (max-width: 480px) {
-            .logo h1 {
-                font-size: 1.5rem;
-            }
-
-            .logo .subtitle span {
-                font-size: 0.7rem;
-            }
-
-            .banner-texto h2 {
-                font-size: 1.8rem;
-            }
-
-            .banner-texto p {
-                font-size: 0.9rem;
-            }
-
-            .banner-imagem img {
-                height: 200px;
-            }
-
-            .sobre-mim-conteudo {
-                padding: 1rem;
-            }
-
-            .sobre-mim-slide h3 {
-                font-size: 1.2rem;
-            }
-
-            .sobre-mim-slide p {
-                font-size: 0.8rem;
-            }
-
             .grid-desafios {
                 grid-template-columns: 1fr; /* 1 item por linha em telas muito pequenas */
-            }
-
-            .card-desafio {
-                padding: 1rem;
-            }
-
-            .card-desafio i {
-                font-size: 1.5rem;
-            }
-
-            .metodo-item i {
-                font-size: 1.5rem;
             }
         }
     </style>
@@ -621,3 +628,4 @@
     </script>
 </body>
 </html>
+
