@@ -15,7 +15,7 @@
             --sombra: 0 4px 20px rgba(0,0,0,0.1);
             --borda-redonda: 15px;
             --transicao: all 0.3s ease;
-            --max-width: 1200px; /* Largura máxima para centralização */
+            --max-width: 1200px;
         }
 
         * {
@@ -76,24 +76,21 @@
             align-items: center;
             padding: 90px 5% 0;
             position: relative;
-            z-index: 1; /* Garante que o banner fique acima do fundo */
+            z-index: 1;
         }
 
         .banner-container {
             display: flex;
             align-items: center;
-            gap: 3rem; /* Reduzido o gap para aproximar os elementos */
+            gap: 3rem;
             max-width: var(--max-width);
             width: 100%;
-            height: 70vh;
-            min-height: 700px;
-            margin:0 auto;
+            margin: 0 auto;
         }
 
         .banner-texto {
             flex: 1;
-            position: relative;
-            z-index: 2;
+            text-align: center; /* Centraliza o texto */
         }
 
         .banner-texto h2 {
@@ -108,74 +105,126 @@
         .banner-texto p {
             font-size: 1.2rem;
             color: var(--cor-1);
-            margin-bottom: 2rem;
-            max-width: 500px;
             font-family: 'Open Sans', sans-serif;
+            margin-bottom: 25px;
         }
 
         .banner-imagem {
             flex: 1;
-            position: relative;
             display: flex;
             justify-content: center;
-            z-index: 1; /* Garante que a imagem fique atrás do texto */
         }
 
         .banner-imagem img {
-            width: 85%;
-            max-width: 500px;
-            height: 700px;
-            object-fit: cover;
-            object-position: bottom;
-            box-shadow: var(--sombra);
+            max-width: 100%;
+            height: auto;
+            border-radius: 2rem;
             transform: rotate(3deg);
             transition: var(--transicao);
-            margin-bottom: -50px; /* Faz a imagem sobrepor a seção abaixo */
-            background-color: transparent;
+        }
+
+        /* Botão CTA */
+        .cta-button {
+            background-color: var(--cor-1);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transicao);
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--sombra);
+        }
+
+        /* Botão CTA para mobile */
+        .cta-button-mobile {
+            display: none;
+            background-color: var(--cor-1);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transicao);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            margin-bottom: 30px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
+            .banner-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .banner-texto h2 {
+                font-size: 2rem;
+            }
+
+            .banner-texto p {
+                font-size: 1rem;
+            }
+
+            .banner-imagem img {
+                height: 250px;
+            }
+
+            .cta-button {
+                display: none;
+            }
+
+            .cta-button-mobile {
+                display: inline-block;
+            }
         }
 
         /* Seção Sobre Mim */
         .sobre-mim {
-            padding: 8% 5% 12%; /* Aumentei o padding-bottom para acomodar a sobreposição */
+            padding: 8% 5%;
             background-color: var(--cor-2);
             position: relative;
-            overflow: hidden; /* Garante que o conteúdo fora do quadro não seja exibido */
-            z-index: 2; /* Garante que a seção fique acima da imagem do banner */
+            overflow: hidden;
         }
 
         .sobre-mim-conteudo {
             max-width: 800px;
             margin: 0 auto;
             background: white;
-            padding: 3rem;
+            padding: 2rem;
             border-radius: var(--borda-redonda);
             box-shadow: var(--sombra);
             position: relative;
-            overflow: hidden; /* Oculta o conteúdo que ultrapassa o quadro */
-        }
-
-        .sobre-mim-conteudo:before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-width: 0 15px 15px;
-            border-style: solid;
-            border-color: transparent transparent white;
+            overflow: hidden; /* Garante que o conteúdo fora do quadro não seja exibido */
         }
 
         .sobre-mim-container {
             display: flex;
             transition: transform 0.5s ease-in-out;
-            width: 100%; /* Ajuste para 3 slides */
+            width: 100%;
         }
 
         .sobre-mim-slide {
-            flex: 0 0 100%; /* Cada slide ocupa 100% do contêiner */
+            flex: 0 0 100%;
             padding: 1rem;
             text-align: center;
             box-sizing: border-box;
+            display: none; /* Oculta todos os slides por padrão */
+        }
+
+        .sobre-mim-slide.ativo {
+            display: block; /* Exibe apenas o slide ativo */
         }
 
         .sobre-mim-slide h3 {
@@ -226,7 +275,7 @@
 
         .grid-desafios {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr); /* 3 itens por linha */
             gap: 2rem;
             max-width: var(--max-width);
             margin: 0 auto;
@@ -265,7 +314,7 @@
         .metodo-item {
             display: flex;
             gap: 1.5rem;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 2rem;
         }
 
@@ -274,6 +323,19 @@
             color: var(--cor-3);
             min-width: 50px;
             transition: var(--transicao);
+        }
+
+        .metodo-item div {
+            text-align: left;
+        }
+
+        .metodo-item h4 {
+            color: var(--cor-2);
+            margin-bottom: 0.5rem;
+        }
+
+        .metodo-item p {
+            color: var(--cor-2);
         }
 
         /* Footer */
@@ -291,27 +353,6 @@
 
         .faixa-final a:hover {
             opacity: 0.8;
-        }
-
-        /* Botão CTA */
-        .cta-button {
-            background-color: var(--cor-1);
-            color: white;
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            border: none;
-            cursor: pointer;
-            transition: var(--transicao);
-            display: inline-block;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--sombra);
         }
 
         /* Botão Flutuante do WhatsApp */
@@ -347,61 +388,9 @@
             }
         }
 
-        /* Responsividade */
         @media (max-width: 768px) {
-            .faixa-inicial {
-                height: 80px;
-            }
-
-            .logo h1 {
-                font-size: 1.8rem;
-            }
-
-            .logo .subtitle {
-                flex-direction: column;
-                gap: 0.2rem;
-            }
-
-            .logo .subtitle span {
-                font-size: 0.8rem;
-            }
-
-            .banner-container {
-                flex-direction: column-reverse;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            .banner-texto h2 {
-                font-size: 2.4rem;
-            }
-
-            .banner-texto p {
-                font-size: 1rem;
-                margin: 0 auto 2rem;
-            }
-
-            .banner-imagem img {
-                max-width: 300px;
-                height: 400px;
-                transform: none;
-                margin-bottom: -30px; /* Ajuste para mobile */
-            }
-
             .grid-desafios {
-                grid-template-columns: 1fr;
-            }
-
-            .sobre-mim-conteudo {
-                padding: 2rem 1.5rem;
-            }
-
-            .sobre-mim-slide h3 {
-                font-size: 1.8rem;
-            }
-
-            .sobre-mim-slide p {
-                font-size: 1rem;
+                grid-template-columns: repeat(2, 1fr); /* 2 itens por linha em telas menores */
             }
         }
 
@@ -415,7 +404,7 @@
             }
 
             .banner-texto h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .banner-texto p {
@@ -423,26 +412,35 @@
             }
 
             .banner-imagem img {
-                height: 300px;
-                margin-bottom: -20px; /* Ajuste para mobile */
-            }
-
-            .cta-button {
-                width: 100%;
-                padding: 1rem;
-                font-size: 1rem;
+                height: 200px;
             }
 
             .sobre-mim-conteudo {
-                padding: 1.5rem 1rem;
+                padding: 1rem;
             }
 
             .sobre-mim-slide h3 {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
             }
 
             .sobre-mim-slide p {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
+            }
+
+            .grid-desafios {
+                grid-template-columns: 1fr; /* 1 item por linha em telas muito pequenas */
+            }
+
+            .card-desafio {
+                padding: 1rem;
+            }
+
+            .card-desafio i {
+                font-size: 1.5rem;
+            }
+
+            .metodo-item i {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -461,22 +459,27 @@
     </header>
 
     <section class="banner">
-        <div style="text-align:center;" class="banner-container">
+        <div class="banner-container">
             <div class="banner-texto">
                 <h2>Encontre Equilíbrio e Bem-Estar Emocional</h2>
                 <p>Ansiedade, depressão e estresse são desafios comuns que podem afetar qualquer pessoa. Você não está sozinho. Com uma abordagem humanizada e personalizada, eu te ajudo a superar esses obstáculos e reconquistar a qualidade de vida que você merece.</p>
-                <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%2C%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta."><button class="cta-button">Agende sua Consulta <i class="fa fa-whatsapp logo-whatsapp" style="font-size:30px; color:#25D366"></i></button></a>
+                <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%2C%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta.">
+                    <button class="cta-button">Agende sua Consulta <i class="fa fa-whatsapp logo-whatsapp" style="font-size:30px; color:#25D366"></i></button>
+                </a>
             </div>
             <div class="banner-imagem">
                 <img src="img/perfil.png" alt="Iago Benacci">
             </div>
+            <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%2C%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta.">
+                <button class="cta-button cta-button-mobile">Agende sua Consulta <i class="fa fa-whatsapp logo-whatsapp" style="font-size:30px; color:#25D366"></i></button>
+            </a>
         </div>
     </section>
 
     <section class="sobre-mim">
         <div class="sobre-mim-conteudo">
             <div class="sobre-mim-container">
-                <div class="sobre-mim-slide">
+                <div class="sobre-mim-slide ativo">
                     <h3>Sobre Mim</h3>
                     <p>Olá, sou Iago Benacci, psicólogo especializado em ajudar pessoas a superar desafios emocionais e alcançar seu potencial máximo. Com anos de experiência, ofereço um ambiente seguro e acolhedor para o seu crescimento pessoal.</p>
                 </div>
@@ -514,6 +517,21 @@
                 <h4>Relacionamentos</h4>
                 <p>Melhore a comunicação e construa conexões mais saudáveis e significativas.</p>
             </div>
+            <div class="card-desafio">
+                <i class="fas fa-brain"></i>
+                <h4>Ansiedade</h4>
+                <p>Aprenda a gerenciar preocupações excessivas e recupere o controle da sua vida.</p>
+            </div>
+            <div class="card-desafio">
+                <i class="fas fa-heartbeat"></i>
+                <h4>Depressão</h4>
+                <p>Encontre apoio para superar a tristeza profunda e redescobrir a alegria de viver.</p>
+            </div>
+            <div class="card-desafio">
+                <i class="fas fa-hands-helping"></i>
+                <h4>Relacionamentos</h4>
+                <p>Melhore a comunicação e construa conexões mais saudáveis e significativas.</p>
+            </div>
         </div>
     </section>
 
@@ -524,15 +542,15 @@
                 <div class="metodo-item">
                     <i class="fas fa-compass"></i>
                     <div>
-                        <h4 style="color: var(--cor-2);">Abordagem Humanizada</h4>
-                        <p style="color: var(--cor-2);">Cada pessoa é única, e o tratamento é adaptado às suas necessidades e objetivos.</p>
+                        <h4>Abordagem Humanizada</h4>
+                        <p>Cada pessoa é única, e o tratamento é adaptado às suas necessidades e objetivos.</p>
                     </div>
                 </div>
                 <div class="metodo-item">
                     <i class="fas fa-seedling"></i>
                     <div>
-                        <h4 style="color: var(--cor-2);">Resultados Progressivos</h4>
-                        <p style="color: var(--cor-2);">Trabalhamos juntos para alcançar mudanças duradouras e significativas.</p>
+                        <h4>Resultados Progressivos</h4>
+                        <p>Trabalhamos juntos para alcançar mudanças duradouras e significativas.</p>
                     </div>
                 </div>
             </div>
@@ -560,7 +578,15 @@
         let autoPlay = true;
 
         function mudarSlide(index) {
-            slides.style.transform = `translateX(-${index * 100}%)`;
+            // Oculta todos os slides
+            document.querySelectorAll('.sobre-mim-slide').forEach(slide => {
+                slide.classList.remove('ativo');
+            });
+
+            // Exibe o slide ativo
+            document.querySelectorAll('.sobre-mim-slide')[index].classList.add('ativo');
+
+            // Atualiza a bolinha ativa
             bolinhas.forEach((bolinha, i) => {
                 bolinha.classList.toggle('ativa', i === index);
             });
