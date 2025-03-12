@@ -207,7 +207,7 @@
 
         .sobre-mim-slide {
             flex: 0 0 100%;
-            padding: 0.5rem;
+            padding: 1.5rem;
             text-align: center;
             box-sizing: border-box;
             display: none;
@@ -227,7 +227,7 @@
         }
 
         .sobre-mim-slide p {
-            font-size: 1rem; /* Ajustado para melhor legibilidade */
+            font-size: 1.4rem; /* Ajustado para melhor legibilidade */
             line-height: 1.8;
             color: #666;
             max-width: 600px;
@@ -352,6 +352,10 @@
             text-align:center;
         }
 
+        .consultorio-container .mob-ver{
+            height:350px;
+        }
+
         .atendimento-item:hover {
             transform: translateY(-5px);
         }
@@ -368,13 +372,18 @@
         }
 
         .atendimento-item p {
-            color: #666;
+            color:#666;
             line-height: 1.6;
+        }
+
+        .atendimento-item a{
+            color:var(--cor-1);
+            text-decoration: solid;
         }
 
         /* Slider de imagens do consultório */
         .consultorio-slider {
-            max-width: 500px; /* 25% maior */
+            max-width: 600px; /* 25% maior */
             margin: 0 auto;
             position: relative;
             overflow: hidden;
@@ -392,8 +401,8 @@
             flex: 0 0 100%;
             box-sizing: border-box;
             display: none;
-            height: 400px; /* Altura fixa */
-            width:auto;
+            height: auto; /* Altura fixa */
+            width:80%;
             overflow: hidden;
         }
 
@@ -405,7 +414,6 @@
             width: 100%;
             height: 100%;
             object-fit:contain; /* Mantém o aspecto da imagem */
-            border-radius: 40px;
         }
 
         .consultorio-navegacao {
@@ -490,11 +498,12 @@
             }
 
             .atendimento-item {
-                margin-bottom: 1.5rem;
+                margin-bottom: 0.5rem;
             }
 
             .consultorio-slider {
-                max-width: 100%;
+                max-width: 90%;
+                border-radius:40px;
             }
 
             .banner-container {
@@ -550,7 +559,7 @@
             }
 
             .banner-texto p {
-                font-size: 0.9rem; /* Ajustado para melhor legibilidade em mobile */
+                font-size: 1.2rem; /* Ajustado para melhor legibilidade em mobile */
                 margin-bottom:10px;
             }
 
@@ -571,7 +580,7 @@
             }
 
             .sobre-mim-slide p {
-                font-size: 0.9rem; /* Ajustado para melhor legibilidade em mobile */
+                font-size: 1.0rem; /* Ajustado para melhor legibilidade em mobile */
                 margin-bottom:20px;
             }
 
@@ -634,7 +643,7 @@
             <div class="banner-texto mob-ver">
                 <h2>Iago Benacci</h2>
                 <h3>Psicólogo CRP 06/135768</h2>
-                <p>Sente que não está conseguindo lidar com tudo por conta própria? Eu te ajudo!</p>
+                <p>Sente que não está conseguindo lidar por conta própria?<b> Eu te ajudo!</b></p>
                 <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta.">
                     <button class="cta-button">Agende sua Consulta <i class="fa fa-whatsapp logo-whatsapp" style="font-size:30px; color:#25D366"></i></button>
                 </a>
@@ -650,15 +659,15 @@
             <div class="sobre-mim-container">
                 <div class="sobre-mim-slide ativo">
                     <h3>Sobre Mim</h3>
-                    <p>Olá, sou Iago Benacci, psicólogo especializado em ajudar pessoas a superar desafios emocionais e alcançar seu potencial máximo. Com anos de experiência, ofereço um ambiente seguro e acolhedor para o seu crescimento pessoal.</p>
+                    <p><strong>Psicólogo</strong> especializado em ajudar pessoas a superar desafios emocionais e alcançar seu <strong>potencial máximo</strong>.</p>
                 </div>
                 <div class="sobre-mim-slide">
                     <h3>Públicos que Atendo</h3>
-                    <p>Trabalho com adultos, adolescentes e casais, ajudando a lidar com questões como ansiedade, depressão, relacionamentos e desenvolvimento pessoal. Cada cliente é único, e minha abordagem é sempre personalizada.</p>
+                    <p>Trabalho com <strong>adultos</strong>, <strong>adolescentes</strong> e <strong>casais</strong>, ajudando a lidar com questões como ansiedade, depressão, relacionamentos e <strong>desenvolvimento pessoal</strong>. </p>
                 </div>
                 <div class="sobre-mim-slide">
                     <h3>Tipos de Atendimento</h3>
-                    <p>Ofereço atendimento <strong>presencial</strong> em Itapira-SP e <strong>online</strong> para todo o Brasil. A terapia online é tão eficaz quanto a presencial, com a comodidade de ser feita no conforto da sua casa.</p>
+                    <p>Ofereço atendimento <strong>presencial</strong> em Itapira-SP e <strong>online</strong> para todo o Brasil.</p>
                 </div>
             </div>
             <div class="sobre-mim-navegacao">
@@ -674,17 +683,14 @@
             <div class="card-desafio">
                 <i class="fas fa-brain"></i>
                 <h4>Ansiedade</h4>
-                <p>Aprenda a gerenciar preocupações excessivas e recupere o controle da sua vida.</p>
             </div>
             <div class="card-desafio">
                 <i class="fas fa-heartbeat"></i>
                 <h4>Depressão</h4>
-                <p>Encontre apoio para superar a tristeza profunda e redescobrir a alegria de viver.</p>
             </div>
             <div class="card-desafio">
                 <i class="fas fa-hands-helping"></i>
                 <h4>Relacionamentos</h4>
-                <p>Melhore a comunicação e construa conexões mais saudáveis e significativas.</p>
             </div>
         </div>
     </section>
@@ -697,17 +703,40 @@
                     <div class="atendimento-item">
                         <i class="fas fa-user-friends"></i>
                         <h4>Atendimento Presencial</h4>
-                        <p>Realizado em meu consultório em Itapira-SP, proporcionando um ambiente seguro e acolhedor para o seu desenvolvimento pessoal.</p>
+                        <p>Realizado no meu consultório em Itapira-SP, <strong><a href="https://www.google.com/maps?q=Rua+Exemplo,+123,+São+Paulo,+SP">Rua Sebastião da Rosa Pinheiro, nº 42.</a></strong></p>
+                    </div>
+
+                    <div class="consultorio-slider mob-ver">
+                        <div class="consultorio-container">
+                            <div class="consultorio-slide ativo">
+                                <img src="img/consultorio1.jpg" alt="Consultório 1">
+                            </div>
+                            <div class="consultorio-slide">
+                                <img src="img/consultorio2.jpg" alt="Consultório 2">
+                            </div>
+                            <div class="consultorio-slide">
+                                <img src="img/consultorio3.jpg" alt="Consultório 3">
+                            </div>
+                            <div class="consultorio-slide">
+                                <img src="img/consultorio4.jpg" alt="Consultório 4">
+                            </div>
+                        </div>
+                        <div class="consultorio-navegacao">
+                            <div class="consultorio-bolinha ativa" data-slide="0"></div>
+                            <div class="consultorio-bolinha" data-slide="1"></div>
+                            <div class="consultorio-bolinha" data-slide="2"></div>
+                            <div class="consultorio-bolinha" data-slide="3"></div>
+                        </div>
                     </div>
                     
                     <div class="atendimento-item">
                         <i class="fas fa-laptop"></i>
                         <h4>Atendimento Online</h4>
-                        <p>Sessões realizadas via videoconferência, permitindo que você receba atendimento de qualidade no conforto da sua casa.</p>
+                        <p>Sessões realizadas pela plataforma <strong><a href="https://www.zoom.com/pt"> ZOOM.</a></strong> </br><strong>Nenhuma sessão é gravada</strong>.</p>
                     </div>
                 </div>
                 <!-- Slider de imagens do consultório -->
-                <div class="consultorio-slider">
+                <div class="consultorio-slider pc-ver">
                     <div class="consultorio-container">
                         <div class="consultorio-slide ativo">
                             <img src="img/consultorio1.jpg" alt="Consultório 1">
