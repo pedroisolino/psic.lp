@@ -707,11 +707,34 @@
     </a>
 
     <script>
+        // Função para detectar o gesto de deslize (swipe)
+        function setupSwipe(slidesContainer, nextSlideFunction, prevSlideFunction) {
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            slidesContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            slidesContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                const swipeThreshold = 50; // Sensibilidade do deslize
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    nextSlideFunction();
+                } else if (touchEndX > touchStartX + swipeThreshold) {
+                    prevSlideFunction();
+                }
+            }
+        }
+
         // Script para o slider do "Sobre Mim"
         const slides = document.querySelector('.sobre-mim-container');
         const bolinhas = document.querySelectorAll('.sobre-mim-bolinha');
         let currentSlide = 0;
-        let autoPlay = true;
 
         function mudarSlide(index) {
             document.querySelectorAll('.sobre-mim-slide').forEach(slide => {
@@ -729,18 +752,18 @@
             mudarSlide(currentSlide);
         }
 
-        let interval = setInterval(nextSlide, 10000);
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + 3) % 3;
+            mudarSlide(currentSlide);
+        }
+
+        setupSwipe(slides, nextSlide, prevSlide);
 
         bolinhas.forEach((bolinha, index) => {
             bolinha.addEventListener('click', () => {
-                clearInterval(interval);
                 mudarSlide(index);
-                interval = setInterval(nextSlide, 6000);
             });
         });
-
-        slides.parentElement.addEventListener('mouseenter', () => clearInterval(interval));
-        slides.parentElement.addEventListener('mouseleave', () => interval = setInterval(nextSlide, 6000));
 
         // Script para o slider do consultório
         const consultorioSlides = document.querySelector('.consultorio-container');
@@ -763,18 +786,49 @@
             mudarConsultorioSlide(currentConsultorioSlide);
         }
 
-        let consultorioInterval = setInterval(nextConsultorioSlide, 10000);
+        function prevConsultorioSlide() {
+            currentConsultorioSlide = (currentConsultorioSlide - 1 + 4) % 4;
+            mudarConsultorioSlide(currentConsultorioSlide);
+        }
+
+        setupSwipe(consultorioSlides, nextConsultorioSlide, prevConsultorioSlide);
 
         consultorioBolinhas.forEach((bolinha, index) => {
             bolinha.addEventListener('click', () => {
-                clearInterval(consultorioInterval);
                 mudarConsultorioSlide(index);
-                consultorioInterval = setInterval(nextConsultorioSlide, 6000);
             });
         });
 
-        consultorioSlides.parentElement.addEventListener('mouseenter', () => clearInterval(consultorioInterval));
-        consultorioSlides.parentElement.addEventListener('mouseleave', () => consultorioInterval = setInterval(nextConsultorioSlide, 6000));
+        // Adicionando setas invisíveis
+        function addInvisibleArrows(container, nextFunction, prevFunction) {
+            const leftArrow = document.createElement('div');
+            leftArrow.style.position = 'absolute';
+            leftArrow.style.left = '10px';
+            leftArrow.style.top = '50%';
+            leftArrow.style.transform = 'translateY(-50%)';
+            leftArrow.style.width = '50px';
+            leftArrow.style.height = '50px';
+            leftArrow.style.cursor = 'pointer';
+            leftArrow.style.zIndex = '1000';
+            leftArrow.addEventListener('click', prevFunction);
+
+            const rightArrow = document.createElement('div');
+            rightArrow.style.position = 'absolute';
+            rightArrow.style.right = '10px';
+            rightArrow.style.top = '50%';
+            rightArrow.style.transform = 'translateY(-50%)';
+            rightArrow.style.width = '50px';
+            rightArrow.style.height = '50px';
+            rightArrow.style.cursor = 'pointer';
+            rightArrow.style.zIndex = '1000';
+            rightArrow.addEventListener('click', nextFunction);
+
+            container.appendChild(leftArrow);
+            container.appendChild(rightArrow);
+        }
+
+        addInvisibleArrows(slides.parentElement, nextSlide, prevSlide);
+        addInvisibleArrows(consultorioSlides.parentElement, nextConsultorioSlide, prevConsultorioSlide);
     </script>
 </body>
 </html>
