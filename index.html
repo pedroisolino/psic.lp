@@ -90,7 +90,7 @@
 
         .banner-texto {
             flex: 1;
-            text-align: center; /* Centraliza o texto */
+            text-align: center;
         }
 
         .banner-texto h2 {
@@ -171,19 +171,19 @@
             }
 
             .banner-texto h2 {
-                font-size: 2rem;
+                font-size: 2.5rem; /* Ajustado para melhor legibilidade em mobile */
             }
 
             .banner-texto p {
-                font-size: 1rem;
+                font-size: 1rem; /* Ajustado para melhor legibilidade em mobile */
             }
 
             .banner-imagem img {
-                height: 400px; /* Aumentei a altura da imagem */
-                width: 100%; /* Faz a imagem ocupar a largura total */
-                object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
-                border-radius: 1rem; /* Ajustei o border-radius para ficar mais proporcional */
-                margin-bottom:10px;
+                height: 400px;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 1rem;
+                margin-bottom: 10px;
             }
 
             .cta-button {
@@ -197,23 +197,23 @@
 
         @media (max-width: 480px) {
             .logo h1 {
-                font-size: 1.5rem;
+                font-size: 1.8rem; /* Ajustado para melhor legibilidade em mobile */
             }
 
             .logo .subtitle span {
-                font-size: 0.7rem;
+                font-size: 0.8rem; /* Ajustado para melhor legibilidade em mobile */
             }
 
             .banner-texto h2 {
-                font-size: 1.8rem;
+                font-size: 2rem; /* Ajustado para melhor legibilidade em mobile */
             }
 
             .banner-texto p {
-                font-size: 0.9rem;
+                font-size: 0.9rem; /* Ajustado para melhor legibilidade em mobile */
             }
 
             .banner-imagem img {
-                height: 350px; /* Ajustei a altura para telas muito pequenas */
+                height: 350px;
             }
 
             .sobre-mim-conteudo {
@@ -221,15 +221,15 @@
             }
 
             .sobre-mim-slide h3 {
-                font-size: 1.2rem;
+                font-size: 1.5rem; /* Ajustado para melhor legibilidade em mobile */
             }
 
             .sobre-mim-slide p {
-                font-size: 0.8rem;
+                font-size: 0.9rem; /* Ajustado para melhor legibilidade em mobile */
             }
 
             .grid-desafios {
-                grid-template-columns: 1fr; /* 1 item por linha em telas muito pequenas */
+                grid-template-columns: 1fr;
             }
 
             .card-desafio {
@@ -261,7 +261,7 @@
             border-radius: var(--borda-redonda);
             box-shadow: var(--sombra);
             position: relative;
-            overflow: hidden; /* Garante que o conteúdo fora do quadro não seja exibido */
+            overflow: hidden;
         }
 
         .sobre-mim-container {
@@ -275,12 +275,12 @@
             padding: 1rem;
             text-align: center;
             box-sizing: border-box;
-            display: none; /* Oculta todos os slides por padrão */
-            height:300px;
+            display: none;
+            height: 300px;
         }
 
         .sobre-mim-slide.ativo {
-            display: block; /* Exibe apenas o slide ativo */
+            display: block;
         }
 
         .sobre-mim-slide h3 {
@@ -292,7 +292,7 @@
         }
 
         .sobre-mim-slide p {
-            font-size: 0.9rem;
+            font-size: 1rem; /* Ajustado para melhor legibilidade */
             line-height: 1.8;
             color: #666;
             max-width: 600px;
@@ -331,7 +331,7 @@
 
         .grid-desafios {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 itens por linha */
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             max-width: var(--max-width);
             margin: 0 auto;
@@ -394,6 +394,123 @@
             color: var(--cor-2);
         }
 
+        /* Nova seção de tipos de atendimento */
+        .tipos-atendimento {
+            margin-top: 4rem;
+            text-align: left;
+        }
+
+        .atendimento-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .atendimento-item {
+            flex: 1;
+            background: white;
+            padding: 2rem;
+            border-radius: var(--borda-redonda);
+            box-shadow: var(--sombra);
+            transition: var(--transicao);
+            text-align:center;
+        }
+
+        .atendimento-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .atendimento-item i {
+            font-size: 2.5rem;
+            color: var(--cor-1);
+            margin-bottom: 1rem;
+        }
+
+        .atendimento-item h4 {
+            color: var(--cor-1);
+            margin-bottom: 1rem;
+        }
+
+        .atendimento-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Slider de imagens do consultório */
+        .consultorio-slider {
+            max-width: 500px; /* 25% maior */
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--borda-redonda);
+            box-shadow: var(--sombra);
+
+        }
+
+        .consultorio-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .consultorio-slide {
+            flex: 0 0 100%;
+            box-sizing: border-box;
+            display: none;
+            height: 400px; /* Altura fixa */
+            width:auto;
+            overflow: hidden;
+        }
+
+        .consultorio-slide.ativo {
+            display: block;
+        }
+
+        .consultorio-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Mantém o aspecto da imagem */
+            border-radius: var(--borda-redonda);
+        }
+
+        .consultorio-navegacao {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .consultorio-bolinha {
+            width: 12px;
+            height: 12px;
+            background-color: var(--cor-1);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transicao);
+        }
+
+        .consultorio-bolinha.ativa {
+            background-color: var(--cor-3);
+            transform: scale(1.2);
+        }
+
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
+            .atendimento-container {
+                flex-direction: column;
+            }
+
+            .atendimento-item {
+                margin-bottom: 1.5rem;
+            }
+
+            .consultorio-slider {
+                max-width: 100%;
+            }
+        }
+
         /* Footer */
         .faixa-final {
             padding: 2rem 5%;
@@ -446,13 +563,13 @@
 
         @media (max-width: 768px) {
             .grid-desafios {
-                grid-template-columns: repeat(2, 1fr); /* 2 itens por linha em telas menores */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 480px) {
             .grid-desafios {
-                grid-template-columns: 1fr; /* 1 item por linha em telas muito pequenas */
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -529,40 +646,46 @@
                 <h4>Relacionamentos</h4>
                 <p>Melhore a comunicação e construa conexões mais saudáveis e significativas.</p>
             </div>
-            <div class="card-desafio">
-                <i class="fas fa-brain"></i>
-                <h4>Ansiedade</h4>
-                <p>Aprenda a gerenciar preocupações excessivas e recupere o controle da sua vida.</p>
-            </div>
-            <div class="card-desafio">
-                <i class="fas fa-heartbeat"></i>
-                <h4>Depressão</h4>
-                <p>Encontre apoio para superar a tristeza profunda e redescobrir a alegria de viver.</p>
-            </div>
-            <div class="card-desafio">
-                <i class="fas fa-hands-helping"></i>
-                <h4>Relacionamentos</h4>
-                <p>Melhore a comunicação e construa conexões mais saudáveis e significativas.</p>
-            </div>
         </div>
     </section>
 
     <section class="faixa-3" id="abordagem">
         <div class="abordagem-container">
-            <div>
-                <h3 style="color: var(--cor-2); margin-bottom: 2rem; font-size: 2.2rem;">Como Posso Te Ajudar?</h3>
-                <div class="metodo-item">
-                    <i class="fas fa-compass"></i>
-                    <div>
-                        <h4>Abordagem Humanizada</h4>
-                        <p>Cada pessoa é única, e o tratamento é adaptado às suas necessidades e objetivos.</p>
+            <!-- Nova seção sobre tipos de atendimento -->
+            <div class="tipos-atendimento">
+                <div class="atendimento-container">
+                    <div class="atendimento-item">
+                        <i class="fas fa-user-friends"></i>
+                        <h4>Atendimento Presencial</h4>
+                        <p>Realizado em meu consultório em Itapira-SP, proporcionando um ambiente seguro e acolhedor para o seu desenvolvimento pessoal.</p>
+                    </div>
+                    <div class="atendimento-item">
+                        <i class="fas fa-laptop"></i>
+                        <h4>Atendimento Online</h4>
+                        <p>Sessões realizadas via videoconferência, permitindo que você receba atendimento de qualidade no conforto da sua casa.</p>
                     </div>
                 </div>
-                <div class="metodo-item">
-                    <i class="fas fa-seedling"></i>
-                    <div>
-                        <h4>Resultados Progressivos</h4>
-                        <p>Trabalhamos juntos para alcançar mudanças duradouras e significativas.</p>
+                <!-- Slider de imagens do consultório -->
+                <div class="consultorio-slider">
+                    <div class="consultorio-container">
+                        <div class="consultorio-slide ativo">
+                            <img src="img/consultorio1.jpg" alt="Consultório 1">
+                        </div>
+                        <div class="consultorio-slide">
+                            <img src="img/consultorio2.jpg" alt="Consultório 2">
+                        </div>
+                        <div class="consultorio-slide">
+                            <img src="img/consultorio3.jpg" alt="Consultório 3">
+                        </div>
+                        <div class="consultorio-slide">
+                            <img src="img/consultorio4.jpg" alt="Consultório 4">
+                        </div>
+                    </div>
+                    <div class="consultorio-navegacao">
+                        <div class="consultorio-bolinha ativa" data-slide="0"></div>
+                        <div class="consultorio-bolinha" data-slide="1"></div>
+                        <div class="consultorio-bolinha" data-slide="2"></div>
+                        <div class="consultorio-bolinha" data-slide="3"></div>
                     </div>
                 </div>
             </div>
@@ -584,21 +707,17 @@
     </a>
 
     <script>
+        // Script para o slider do "Sobre Mim"
         const slides = document.querySelector('.sobre-mim-container');
         const bolinhas = document.querySelectorAll('.sobre-mim-bolinha');
         let currentSlide = 0;
         let autoPlay = true;
 
         function mudarSlide(index) {
-            // Oculta todos os slides
             document.querySelectorAll('.sobre-mim-slide').forEach(slide => {
                 slide.classList.remove('ativo');
             });
-
-            // Exibe o slide ativo
             document.querySelectorAll('.sobre-mim-slide')[index].classList.add('ativo');
-
-            // Atualiza a bolinha ativa
             bolinhas.forEach((bolinha, i) => {
                 bolinha.classList.toggle('ativa', i === index);
             });
@@ -610,10 +729,8 @@
             mudarSlide(currentSlide);
         }
 
-        // Controle automático
         let interval = setInterval(nextSlide, 10000);
 
-        // Controle manual
         bolinhas.forEach((bolinha, index) => {
             bolinha.addEventListener('click', () => {
                 clearInterval(interval);
@@ -622,9 +739,42 @@
             });
         });
 
-        // Pausar no hover
         slides.parentElement.addEventListener('mouseenter', () => clearInterval(interval));
         slides.parentElement.addEventListener('mouseleave', () => interval = setInterval(nextSlide, 6000));
+
+        // Script para o slider do consultório
+        const consultorioSlides = document.querySelector('.consultorio-container');
+        const consultorioBolinhas = document.querySelectorAll('.consultorio-bolinha');
+        let currentConsultorioSlide = 0;
+
+        function mudarConsultorioSlide(index) {
+            document.querySelectorAll('.consultorio-slide').forEach(slide => {
+                slide.classList.remove('ativo');
+            });
+            document.querySelectorAll('.consultorio-slide')[index].classList.add('ativo');
+            consultorioBolinhas.forEach((bolinha, i) => {
+                bolinha.classList.toggle('ativa', i === index);
+            });
+            currentConsultorioSlide = index;
+        }
+
+        function nextConsultorioSlide() {
+            currentConsultorioSlide = (currentConsultorioSlide + 1) % 4;
+            mudarConsultorioSlide(currentConsultorioSlide);
+        }
+
+        let consultorioInterval = setInterval(nextConsultorioSlide, 10000);
+
+        consultorioBolinhas.forEach((bolinha, index) => {
+            bolinha.addEventListener('click', () => {
+                clearInterval(consultorioInterval);
+                mudarConsultorioSlide(index);
+                consultorioInterval = setInterval(nextConsultorioSlide, 6000);
+            });
+        });
+
+        consultorioSlides.parentElement.addEventListener('mouseenter', () => clearInterval(consultorioInterval));
+        consultorioSlides.parentElement.addEventListener('mouseleave', () => consultorioInterval = setInterval(nextConsultorioSlide, 6000));
     </script>
 </body>
 </html>
