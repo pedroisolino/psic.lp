@@ -74,6 +74,14 @@
             font-family: 'Open Sans', sans-serif;
         }
 
+        /* Botão CTA no topo */
+        .cta-topo {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
         /* Banner Principal */
         .banner {
             min-height: 60vh;
@@ -152,33 +160,15 @@
             border: none;
             cursor: pointer;
             transition: var(--transicao);
-            display: inline-block;
             font-family: 'Poppins', sans-serif;
             font-weight: 500;
             margin-bottom: 30px;
+            text-decoration:none !important;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: var(--sombra);
-        }
-
-        /* Botão CTA para mobile */
-        .cta-button-mobile {
-            display: none;
-            background-color: var(--cor-1);
-            color: white;
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            border: none;
-            cursor: pointer;
-            transition: var(--transicao);
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            margin-bottom: 30px;
-            width: 100%;
-            text-align: center;
         }
 
         /* Seção Sobre Mim */
@@ -440,6 +430,16 @@
             transform: scale(1.2);
         }
 
+        /* Botão CTA após a seção de tipos de atendimento */
+        .cta-centralizado {
+            text-align: center;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-centralizado .cta-button{
+            margin-bottom:0px;
+        }
 
         /* Footer */
         .faixa-final {
@@ -491,8 +491,8 @@
             }
         }
 
-            /* Ajustes para telas menores */
-            @media (max-width: 768px) {
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
 
             .atendimento-container {
                 flex-direction: column;
@@ -528,12 +528,8 @@
                 margin-bottom: 10px;
             }
 
-            .cta-button {
-                display: none;
-            }
-
-            .cta-button-mobile {
-                display: inline-block;
+            .cta-topo {
+                display: block; /* Exibe o botão no topo também em mobile */
             }
         }
 
@@ -635,7 +631,7 @@
                 <h3>Psicólogo CRP 06/135768</h2>
                 <p>Sente que não está conseguindo lidar com tudo por conta própria? <strong>Eu te ajudo!</strong></p>
                 <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta.">
-                    <button class="cta-button">Agende sua Consulta <i class="fa fa-whatsapp logo-whatsapp" style="font-size:30px; color:#25D366"></i></button>
+                    <button class="cta-button pc-ver">Agende sua Consulta <i class="fa fa-whatsapp logo-whatsapp" style="font-size:30px; color:#25D366"></i></button>
                 </a>
             </div>
             <div class="banner-imagem">
@@ -644,13 +640,10 @@
             <div class="banner-texto mob-ver">
                 <h2>Iago Benacci</h2>
                 <h3>Psicólogo CRP 06/135768</h2>
-                <p>Sente que não está conseguindo lidar por conta própria?<strong>Eu te ajudo!</strong></p>
-                <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta.">
-                    <button class="cta-button">Agende sua Consulta <i class="fa fa-whatsapp logo-whatsapp" style="font-size:30px; color:#25D366"></i></button>
-                </a>
+                <p>Sente que não está conseguindo lidar por conta própria? <strong>Eu te ajudo!</strong></p>
             </div>
-            <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%2C%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta.">
-                <button class="cta-button cta-button-mobile">Agende sua Consulta <i class="fa fa-whatsapp logo-whatsapp" style="font-size:30px; color:#25D366"></i></button>
+            <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta.">
+                <button class="cta-button mob-ver">Agende sua Consulta <i class="fa fa-whatsapp logo-whatsapp" style="font-size:30px; color:#25D366"></i></button>
             </a>
         </div>
     </section>
@@ -763,11 +756,19 @@
         </div>
     </section>
 
+    <!-- Botão CTA centralizado após a seção de tipos de atendimento -->
+    <div class="cta-centralizado">
+        <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta.">
+            <button class="cta-button">Agende sua Consulta <i class="fa fa-whatsapp logo-whatsapp" style="font-size:30px; color:#25D366"></i></button>
+        </a>
+    </div>
+
     <section class="faixa-final">
         <div>
             <p>© 2025 Iago Benacci | CRP 06/135768</p>
             <div style="margin-top: 1rem;">
                 <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta."><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/seuinstagram" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </section>
