@@ -163,7 +163,6 @@
             font-family: 'Poppins', sans-serif;
             font-weight: 500;
             margin-bottom: 30px;
-            text-decoration:none !important;
         }
 
         .cta-button:hover {
@@ -479,6 +478,10 @@
             margin-top: 16px;
         }
 
+        a.cta-link {
+        text-decoration: none; /* Remove o sublinhado do link */
+        }
+
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -642,7 +645,7 @@
                 <h3>Psicólogo CRP 06/135768</h2>
                 <p>Sente que não está conseguindo lidar por conta própria? <strong>Eu te ajudo!</strong></p>
             </div>
-            <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta.">
+            <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta." class="cta-link">
                 <button class="cta-button mob-ver">Agende sua Consulta <i class="fa fa-whatsapp logo-whatsapp" style="font-size:30px; color:#25D366"></i></button>
             </a>
         </div>
