@@ -3,907 +3,1412 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psicólogo Iago Benacci</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="description" content="Psicólogo Clínico para Adultos, Adolescentes e Casais em Itapira-SP. Atendimento presencial e online. Agende sua consulta.">
+    <title>Iago Benacci | Psicólogo CRP 06/135768</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
         :root {
-            --cor-1: #003b6f;
-            --cor-2: #6f8ea9;
-            --cor-3: #a6b8c7;
-            --sombra: 0 4px 20px rgba(0,0,0,0.1);
-            --borda-redonda: 15px;
-            --transicao: all 0.3s ease;
-            --max-width: 1200px;
+            --azul-escuro:   #003b6f;   /* Tardis Blue profundo */
+            --azul-medio:    #2a6494;
+            --azul-palido:   #c2d8e8;
+            --azul-gelo:     #e8f2f8;
+            --azul-claro:    #6f8ea9;
+            --areia:         #f0ebe3;
+            --areia-escura:  #e4dbd0;
+            --branco:        #ffffff;
+            --texto:         #1e2e3d;
+            --texto-suave:   #5a7085;
+            --verde-wpp:     #25D366;
+
+            --fonte-display: 'Cormorant Garamond', Georgia, serif;
+            --fonte-corpo:   'Inter', sans-serif;
+
+            --r-card:   14px;
+            --sombra:   0 4px 24px rgba(0,0,0,0.08);
+            --sombra-md:0 8px 40px rgba(0,0,0,0.12);
+            --trans:    all 0.3s ease;
+            --max-w:    1100px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Open Sans', sans-serif;
+        *, *::before, *::after {
+            margin: 0; padding: 0; box-sizing: border-box;
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            line-height: 1.6;
-            color: #4a4a4a;
+            font-family: var(--fonte-corpo);
+            color: var(--texto);
+            background: var(--branco);
             overflow-x: hidden;
-            background-color:#FFF;
+            line-height: 1.7;
         }
 
-        .h2, h3{
-            margin-bottom:20px !important;
-        }
+        img { max-width: 100%; display: block; }
+        a   { text-decoration: none; color: inherit; }
 
-        /* Header */
-        .faixa-inicial {
-            height: 90px;
-            background-color: var(--cor-1);
-            padding: 0 5%;
+        /* ─── HEADER ─── */
+        .header {
             position: fixed;
-            width: 100%;
-            z-index: 1000;
+            top: 0; left: 0; width: 100%;
+            z-index: 900;
+            background: var(--azul-escuro);
+            padding: 0 5%;
+            height: 72px;
             display: flex;
             align-items: center;
-            box-shadow: var(--sombra);
+            justify-content: space-between;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
         }
 
-        .logo h1 {
-            color: var(--cor-2);
-            font-size: 2.2rem;
-            letter-spacing: -1px;
+        .header-logo h1 {
+            font-family: var(--fonte-display);
+            font-size: 1.55rem;
             font-weight: 600;
-            margin: 0;
+            color: var(--branco);
+            letter-spacing: 0.02em;
             line-height: 1;
-            font-family: 'Poppins', sans-serif;
-            color: aliceblue;
+        }
+        .header-logo span {
+            display: block;
+            font-family: var(--fonte-corpo);
+            font-size: 0.72rem;
+            font-weight: 300;
+            color: var(--azul-claro);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 3px;
         }
 
-        .logo .subtitle {
+        .header-nav {
             display: flex;
-            gap: 1rem;
-            margin-top: 0.3rem;
+            gap: 2rem;
+            list-style: none;
         }
-
-        .logo .subtitle span {
-            color: aliceblue;
-            font-size: 0.9rem;
+        .header-nav a {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.75);
             font-weight: 400;
-            letter-spacing: 0.5px;
-            font-family: 'Open Sans', sans-serif;
+            letter-spacing: 0.05em;
+            transition: var(--trans);
         }
+        .header-nav a:hover { color: var(--branco); }
 
-        /* Botão CTA no topo */
-        .cta-topo {
-            position: absolute;
-            right: 5%;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        /* Banner Principal */
-        .banner {
-            min-height: 60vh;
+        .header-cta {
+            background: var(--verde-wpp);
+            color: var(--branco) !important;
+            padding: 0.55rem 1.3rem;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 500;
             display: flex;
             align-items: center;
-            padding: 90px 5% 0;
+            gap: 0.4rem;
+            transition: var(--trans);
+        }
+        .header-cta:hover { opacity: 0.88; transform: translateY(-1px); color: var(--branco) !important; }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding-top: 72px;
+            background: var(--azul-gelo);
             position: relative;
-            z-index: 1;
+            overflow: hidden;
         }
 
-        .banner-container {
+        /* faixa decorativa suave no lado esquerdo */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(135deg, #e8f2f8 0%, #d0e6f2 100%);
+            clip-path: polygon(0 0, 92% 0, 84% 100%, 0 100%);
+            pointer-events: none;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(160deg, #2a6494 0%, #003b6f 60%, #002a52 100%);
+            clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .hero-texto {
+            padding: 6% 3% 6% 10%;
+            position: relative;
+            z-index: 2;
             display: flex;
-            align-items: center;
-            gap: 3rem;
-            max-width: var(--max-width);
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        .banner-texto {
-            flex: 1;
-            text-align: center;
-        }
-
-        .mob-ver{
-            display: none;
-        }
-
-        .banner-texto h2 {
-            font-size: 2.7rem;
-            color: var(--cor-1);
-            margin-bottom: 20px;
-            line-height: 1.2;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .banner-texto h3 {
-            font-size: 1.0rem;
-            color: var(--cor-2);
-            margin-bottom: 2.5rem;
-            line-height: 1.2;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .banner-texto p {
-            font-size: 1.2rem;
-            color: var(--cor-1);
-            font-family: 'Open Sans', sans-serif;
-            margin-bottom: 25px;
-        }
-
-        .banner-imagem {
-            flex: 1;
-            display: flex;
+            flex-direction: column;
             justify-content: center;
         }
 
-        .banner-imagem img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 2rem;
-            transform: rotate(3deg);
-            transition: var(--transicao);
-            margin-bottom: -25px;
-        }
-
-        /* Botão CTA */
-        .cta-button {
-            background-color: var(--cor-1);
-            color: white;
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            border: none;
-            cursor: pointer;
-            transition: var(--transicao);
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            margin-bottom: 30px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--sombra);
-        }
-
-        /* Seção Sobre Mim */
-        .sobre-mim {
-            padding: 8% 5%;
-            background-color: var(--cor-2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .sobre-mim-conteudo {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 1.5rem;
-            border-radius: var(--borda-redonda);
-            box-shadow: var(--sombra);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .sobre-mim-container {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 100%;
-        }
-
-        .sobre-mim-slide {
-            flex: 0 0 100%;
-            padding: 1.5rem;
-            text-align: center;
-            box-sizing: border-box;
-            display: none;
-            height: 300px;
-        }
-
-        .sobre-mim-slide.ativo {
-            display: block;
-        }
-
-        .sobre-mim-slide h3 {
-            font-size: 2rem;
-            color: var(--cor-1);
-            margin-bottom: 1.5rem;
-            font-family: 'Poppins', sans-serif;
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: 0.75rem;
             font-weight: 600;
-        }
-
-        .sobre-mim-slide p {
-            font-size: 1.4rem; /* Ajustado para melhor legibilidade */
-            line-height: 1.8;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-            font-family: 'Open Sans', sans-serif;
-        }
-
-        .sobre-mim-navegacao {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-        }
-
-        .sobre-mim-bolinha {
-            width: 12px;
-            height: 12px;
-            background-color: var(--cor-1);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: var(--transicao);
-        }
-
-        .sobre-mim-bolinha.ativa {
-            background-color: var(--cor-3);
-            transform: scale(1.2);
-        }
-
-        /* Seção Desafios */
-        .faixa-2 {
-            padding: 8% 5%;
-            background-color: var(--cor-3);
-        }
-
-        .grid-desafios {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-
-        .card-desafio {
-            background: white;
-            padding: 2rem;
-            border-radius: var(--borda-redonda);
-            text-align: center;
-            box-shadow: var(--sombra);
-            transition: var(--transicao);
-        }
-
-        .card-desafio:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-desafio i {
-            font-size: 2.8rem;
-            color: var(--cor-1);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--azul-medio);
             margin-bottom: 1.5rem;
+            border-left: 3px solid var(--azul-claro);
+            padding-left: 0.75rem;
         }
 
-        /* Seção Abordagem */
-        .faixa-3 {
-            padding: 8% 5%;
-            background-color: var(--cor-1);
+        .hero-titulo {
+            font-family: var(--fonte-display);
+            font-size: clamp(2.4rem, 4vw, 3.6rem);
+            font-weight: 600;
+            color: var(--azul-escuro);
+            line-height: 1.15;
+            margin-bottom: 1.4rem;
+        }
+        .hero-titulo em {
+            font-style: italic;
+            color: var(--azul-medio);
         }
 
-        .abordagem-container {
-            max-width: var(--max-width);
-            margin: 0 auto;
+        .hero-subtitulo {
+            font-size: 1.05rem;
+            color: #4a6880;
+            margin-bottom: 2.4rem;
+            max-width: 440px;
+            line-height: 1.75;
         }
 
-        .metodo-item {
-            display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
-            margin-bottom: 2rem;
+        /* Destaque azul pálido no canto superior esquerdo do hero */
+        .hero-detalhe {
+            position: absolute;
+            top: -60px; left: -60px;
+            width: 260px; height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(160,210,235,0.28) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
         }
 
-        .metodo-item i {
-            font-size: 2rem;
-            color: var(--cor-3);
-            min-width: 50px;
-            transition: var(--transicao);
+        /* Orbe decorativo azul no hero */
+        .hero-detalhe {
+            position: absolute;
+            top: 80px; left: 5%;
+            width: 320px; height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(160,210,235,0.22) 0%, transparent 68%);
+            pointer-events: none;
+            z-index: 1;
         }
 
-        .metodo-item div {
-            text-align: left;
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: var(--azul-escuro);
+            color: var(--branco);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 1;
+            white-space: nowrap;
+            transition: var(--trans);
+            width: fit-content;
+        }
+        .hero-cta:hover {
+            background: var(--azul-medio);
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-md);
+        }
+        .hero-cta .wpp-icon {
+            color: var(--verde-wpp);
+            font-size: 1.1rem;
+            line-height: 1;
+            flex-shrink: 0;
         }
 
-        .metodo-item h4 {
-            color: var(--cor-2);
-            margin-bottom: 0.5rem;
-        }
-
-        .metodo-item p {
-            color: var(--cor-2);
-        }
-
-        /* Nova seção de tipos de atendimento */
-        .tipos-atendimento {
-            margin-top: 4rem;
-            text-align: left;
-        }
-
-        .atendimento-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .atendimento-item {
-            flex: 1;
-            background: white;
-            padding: 2rem;
-            border-radius: var(--borda-redonda);
-            box-shadow: var(--sombra);
-            transition: var(--transicao);
-            text-align:center;
-        }
-
-        .consultorio-container .mob-ver{
-            height:350px;
-        }
-
-        .atendimento-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .atendimento-item i {
-            font-size: 2.5rem;
-            color: var(--cor-1);
-            margin-bottom: 1rem;
-        }
-
-        .atendimento-item h4 {
-            color: var(--cor-1);
-            margin-bottom: 1rem;
-        }
-
-        .atendimento-item p {
-            color:#666;
-            line-height: 1.6;
-        }
-
-        .atendimento-item a{
-            color:var(--cor-1);
-            text-decoration: solid;
-        }
-
-        /* Slider de imagens do consultório */
-        .consultorio-slider {
-            max-width: 600px; /* 25% maior */
-            margin: 0 auto;
+        .hero-imagem {
             position: relative;
-            overflow: hidden;
-            border-radius: var(--borda-redonda);
-            box-shadow: var(--sombra);
-
-        }
-
-        .consultorio-container {
+            z-index: 2;
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            justify-content: center;
+            align-items: flex-end;
+            height: 100%;
+            margin-left: -7%;
+        }
+        .hero-imagem img {
+            height: min(680px, 84vh);
+            width: auto;
+            object-fit: cover;
+            object-position: top center;
+            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.35));
         }
 
-        .consultorio-slide {
-            flex: 0 0 100%;
-            box-sizing: border-box;
-            display: none;
-            height: auto; /* Altura fixa */
-            width:80%;
+        /* ─── SEÇÕES GERAIS ─── */
+        .secao {
+            padding: 6rem 5%;
+        }
+        .secao-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+
+        .titulo-secao {
+            font-family: var(--fonte-display);
+            font-size: clamp(2rem, 3.5vw, 2.9rem);
+            font-weight: 600;
+            color: var(--azul-escuro);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        .titulo-secao em {
+            font-style: italic;
+            color: var(--azul-claro);
+        }
+
+        .subtitulo-secao {
+            font-size: 1rem;
+            color: var(--texto-suave);
+            max-width: 560px;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        /* ─── COMO POSSO AJUDAR ─── */
+        .como-ajudar {
+            background: var(--branco);
+        }
+
+        .ajudar-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .ajudar-lista {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .ajudar-lista li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--areia);
+            padding: 1rem 1.4rem;
+            border-radius: var(--r-card);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--azul-escuro);
+            transition: var(--trans);
+        }
+        .ajudar-lista li:hover {
+            background: var(--areia-escura);
+            transform: translateX(4px);
+        }
+        .ajudar-lista li i {
+            color: var(--azul-claro);
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .ajudar-cta {
+            margin-top: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--azul-escuro);
+            color: var(--branco);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-size: 0.93rem;
+            font-weight: 500;
+            transition: var(--trans);
+        }
+        .ajudar-cta:hover { background: var(--azul-medio); transform: translateY(-2px); }
+        .ajudar-cta .wpp-icon { color: var(--verde-wpp); }
+
+        .ajudar-texto-bloco {
+            background: var(--azul-escuro);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            color: var(--branco);
+        }
+        .ajudar-texto-bloco p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: rgba(255,255,255,0.82);
+            margin-bottom: 1.4rem;
+        }
+        .ajudar-texto-bloco p:last-child { margin-bottom: 0; }
+        .ajudar-texto-bloco strong { color: var(--branco); }
+
+        /* ─── SOBRE MIM ─── */
+        .sobre {
+            background: var(--areia);
+        }
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 4.5rem;
+            align-items: center;
+        }
+        .sobre-foto {
+            border-radius: 1.5rem;
             overflow: hidden;
+            box-shadow: var(--sombra-md);
+            aspect-ratio: 3/4;
+            background: var(--areia-escura);
         }
-
-        .consultorio-slide.ativo {
-            display: block;
-        }
-
-        .consultorio-slide img {
+        .sobre-foto img {
             width: 100%;
             height: 100%;
-            object-fit:contain; /* Mantém o aspecto da imagem */
+            object-fit: cover;
         }
-
-        .consultorio-navegacao {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+        .sobre-foto-placeholder {
+            width: 100%;
+            height: 100%;
             display: flex;
-            gap: 10px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--azul-claro);
+            gap: 1rem;
+        }
+        .sobre-foto-placeholder i { font-size: 4rem; }
+        .sobre-foto-placeholder span { font-size: 0.85rem; color: var(--texto-suave); }
+
+        .sobre-conteudo p {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: var(--texto-suave);
+            margin-bottom: 1.2rem;
+        }
+        .sobre-conteudo strong { color: var(--azul-escuro); }
+
+        .sobre-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.8rem;
+            margin-bottom: 2rem;
+        }
+        .sobre-tag {
+            background: var(--azul-escuro);
+            color: var(--branco);
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
         }
 
-        .consultorio-bolinha {
-            width: 12px;
-            height: 12px;
-            background-color: var(--cor-1);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: var(--transicao);
+        /* ─── COMO FUNCIONAM AS SESSÕES ─── */
+        .sessoes {
+            background: var(--branco);
         }
-
-        .consultorio-bolinha.ativa {
-            background-color: var(--cor-3);
-            transform: scale(1.2);
-        }
-
-        /* Botão CTA após a seção de tipos de atendimento */
-        .cta-centralizado {
-            text-align: center;
+        .sessoes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
             margin-top: 1rem;
+        }
+        .sessao-card {
+            background: var(--areia);
+            border-radius: var(--r-card);
+            padding: 2.2rem;
+            transition: var(--trans);
+        }
+        .sessao-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra);
+        }
+        .sessao-card-icon {
+            width: 52px;
+            height: 52px;
+            background: var(--azul-escuro);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+        }
+        .sessao-card-icon i {
+            color: var(--branco);
+            font-size: 1.3rem;
+        }
+        .sessao-card h3 {
+            font-family: var(--fonte-display);
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--azul-escuro);
+            margin-bottom: 0.7rem;
+        }
+        .sessao-card p {
+            font-size: 0.93rem;
+            color: var(--texto-suave);
+            line-height: 1.8;
+        }
+        .sessao-card a {
+            color: var(--azul-medio);
+            font-weight: 500;
+        }
+
+        .sessoes-aviso {
+            margin-top: 2rem;
+            background: var(--azul-escuro);
+            color: rgba(255,255,255,0.85);
+            padding: 1.2rem 1.8rem;
+            border-radius: var(--r-card);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        .sessoes-aviso strong { color: var(--branco); }
+
+        .sessoes-cta-wrapper {
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
+        /* ─── DEPOIMENTOS ─── */
+        .depoimentos {
+            background: var(--azul-escuro);
+            padding: 6rem 5%;
+        }
+        .depoimentos .titulo-secao { color: var(--branco); }
+        .depoimentos .titulo-secao em { color: var(--azul-claro); }
+        .depoimentos .subtitulo-secao { color: rgba(255,255,255,0.6); }
+
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        .depoimento-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--r-card);
+            padding: 2rem;
+            transition: var(--trans);
+        }
+        .depoimento-card:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        .depoimento-estrelas {
+            color: #f5c842;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+        .depoimento-texto {
+            font-size: 0.94rem;
+            color: rgba(255,255,255,0.78);
+            line-height: 1.85;
+            font-style: italic;
+            margin-bottom: 1.4rem;
+        }
+        .depoimento-autor {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--azul-claro);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ─── ATENDIMENTO ─── */
+        .atendimento {
+            background: var(--areia);
+        }
+        .atendimento-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .at-card {
+            background: var(--branco);
+            border-radius: var(--r-card);
+            padding: 2.5rem;
+            box-shadow: var(--sombra);
+            transition: var(--trans);
+            text-align: center;
+        }
+        .at-card:hover { transform: translateY(-4px); box-shadow: var(--sombra-md); }
+        .at-card i {
+            font-size: 2.2rem;
+            color: var(--azul-medio);
             margin-bottom: 1rem;
         }
-
-        .cta-centralizado .cta-button{
-            margin-bottom:0px;
+        .at-card h3 {
+            font-family: var(--fonte-display);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--azul-escuro);
+            margin-bottom: 0.8rem;
         }
-
-        /* Footer */
-        .faixa-final {
-            padding: 2rem 5%;
-            background-color: var(--cor-3);
-            text-align: center;
+        .at-card p {
+            font-size: 0.93rem;
+            color: var(--texto-suave);
+            line-height: 1.8;
         }
+        .at-card a { color: var(--azul-medio); font-weight: 500; }
 
-        .faixa-final a {
-            color: var(--cor-1);
-            margin: 0 1rem;
-            transition: var(--transicao);
+        .consultorio-slider {
+            border-radius: 1.2rem;
+            overflow: hidden;
+            box-shadow: 0 12px 48px rgba(0, 59, 111, 0.18);
+            position: relative;
+            background: var(--azul-escuro);
+            max-width: 780px;
+            margin: 0 auto 3rem;
+            border: 1px solid rgba(0,59,111,0.1);
         }
-
-        .faixa-final a:hover {
-            opacity: 0.8;
+        /* vinheta sutil nas bordas */
+        .consultorio-slider::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 1.2rem;
+            box-shadow: inset 0 0 60px rgba(0,0,0,0.12);
+            pointer-events: none;
+            z-index: 2;
         }
+        .consultorio-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .consultorio-slide {
+            flex: 0 0 100%;
+            overflow: hidden;
+        }
+        .consultorio-slide img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            object-position: center 60%;
+            filter: brightness(1.08) contrast(1.06) saturate(1.12);
+            transition: transform 0.6s ease, filter 0.4s ease;
+        }
+        .consultorio-slide img:hover {
+            filter: brightness(1.12) contrast(1.08) saturate(1.18);
+            transform: scale(1.02);
+        }
+        .consultorio-placeholder {
+            width: 100%;
+            height: 340px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--azul-claro);
+            gap: 0.8rem;
+        }
+        .consultorio-placeholder i { font-size: 3rem; }
+        .consultorio-placeholder span { font-size: 0.82rem; color: var(--texto-suave); }
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 0;
+            background: var(--branco);
+        }
+        .dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--areia-escura);
+            cursor: pointer;
+            transition: var(--trans);
+        }
+        .dot.ativo { background: var(--azul-escuro); transform: scale(1.3); }
 
-        /* Botão Flutuante do WhatsApp */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 20px;
-            right: 15px;
-            background-color: #25d366;
-            color: #FFF;
+        .atendimento-cta { text-align: center; }
+
+        /* ─── BOTÃO PADRÃO ─── */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.95rem 2.2rem;
             border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 1px 1px 2px #888;
-            z-index: 1000;
-            animation: pulse 2.5s infinite;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--trans);
+            cursor: pointer;
+            border: none;
+            font-family: var(--fonte-corpo);
+        }
+        .btn-primario {
+            background: var(--azul-escuro);
+            color: var(--branco);
+        }
+        .btn-primario:hover { background: var(--azul-medio); transform: translateY(-2px); box-shadow: var(--sombra); }
+        .btn-wpp {
+            background: var(--verde-wpp);
+            color: var(--branco);
+        }
+        .btn-wpp:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: var(--sombra); }
+
+        /* ─── FOOTER ─── */
+        .footer {
+            background: var(--azul-escuro);
+            color: rgba(255,255,255,0.6);
+            padding: 2.5rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-logo {
+            font-family: var(--fonte-display);
+            font-size: 1.2rem;
+            color: var(--branco);
+            font-weight: 600;
+        }
+        .footer-logo span {
+            display: block;
+            font-family: var(--fonte-corpo);
+            font-size: 0.7rem;
+            color: var(--azul-claro);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+        .footer-copy { font-size: 0.82rem; }
+        .footer-social { display: flex; gap: 1rem; }
+        .footer-social a {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            transition: var(--trans);
+        }
+        .footer-social a:hover { background: var(--azul-medio); color: var(--branco); }
+
+        /* ─── WhatsApp FLOAT ─── */
+        .wpp-float {
+            position: fixed;
+            bottom: 24px; right: 20px;
+            width: 58px; height: 58px;
+            background: var(--verde-wpp);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--branco);
+            font-size: 1.7rem;
+            box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+            z-index: 999;
+            animation: wppPulse 2.5s infinite;
+            transition: var(--trans);
+        }
+        .wpp-float:hover { transform: scale(1.08); }
+        @keyframes wppPulse {
+            0%, 100% { box-shadow: 0 4px 16px rgba(37,211,102,0.4); }
+            50%       { box-shadow: 0 4px 28px rgba(37,211,102,0.65); }
         }
 
-        .whatsapp-float i {
-            margin-top: 16px;
-        }
+        /* ─── MOBILE ─── */
+        @media (max-width: 900px) {
+            .header-nav { display: none; }
 
-        a.cta-link {
-        text-decoration: none; /* Remove o sublinhado do link */
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                padding-top: 72px;
             }
-            50% {
-                transform: scale(1.1);
+            .hero::before { display: none; }
+            .hero-texto {
+                padding: 3rem 6% 1.5rem;
+                text-align: center;
             }
-            100% {
-                transform: scale(1);
+            .hero-eyebrow { margin-left: auto; margin-right: auto; }
+            .hero-subtitulo { margin: 0 auto 2rem; }
+            .hero-imagem {
+                background: var(--azul-escuro);
+                padding: 0;
+                justify-content: center;
+                margin-left: 0;
             }
-        }
-
-        /* Ajustes para telas menores */
-        @media (max-width: 768px) {
-
-            .atendimento-container {
-                flex-direction: column;
-            }
-
-            .atendimento-item {
-                margin-bottom: 0.5rem;
-            }
-
-            .consultorio-slider {
-                max-width: 90%;
-                border-radius:40px;
-            }
-
-            .banner-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .banner-texto h2 {
-                font-size: 2.5rem; /* Ajustado para melhor legibilidade em mobile */
-            }
-
-            .banner-texto p {
-                font-size: 1rem; /* Ajustado para melhor legibilidade em mobile */
-            }
-
-            .banner-imagem img {
-                height: 400px;
+            .hero-imagem img {
+                height: 300px;
+                border-radius: 0;
                 width: 100%;
                 object-fit: cover;
-                border-radius: 1rem;
-                margin-bottom: 10px;
+                object-position: top center;
             }
 
-            .cta-topo {
-                display: block; /* Exibe o botão no topo também em mobile */
-            }
+            .ajudar-grid { grid-template-columns: 1fr; }
+            .sobre-grid  { grid-template-columns: 1fr; }
+            .sobre-foto-wrapper { width: 100%; }
+            .sessoes-grid { grid-template-columns: 1fr; }
+            .depoimentos-grid { grid-template-columns: 1fr; }
+            .atendimento-cards { grid-template-columns: 1fr; }
+            .footer { flex-direction: column; text-align: center; }
+            .footer-social { justify-content: center; }
         }
 
         @media (max-width: 480px) {
-            .logo h1 {
-                font-size: 1.8rem; /* Ajustado para melhor legibilidade em mobile */
-            }
+            .secao { padding: 4rem 5%; }
+            .depoimentos { padding: 4rem 5%; }
+            .header-cta span { display: none; }
+        }
 
-            .logo .subtitle span {
-                font-size: 0.8rem; /* Ajustado para melhor legibilidade em mobile */
-            }
+        /* ─── SOBRE: wrapper com slider + card flutuante ─── */
+        .sobre-foto-wrapper {
+            position: relative;
+            flex-shrink: 0;
+            width: 380px;
+        }
 
-            .pc-ver{
-                display: none;
-            }
+        /* slider dentro do sobre — sobrescreve o genérico */
+        .sobre-foto-wrapper .consultorio-slider {
+            border-radius: 1.4rem;
+            overflow: hidden;
+            box-shadow: 0 12px 48px rgba(0,59,111,0.20);
+            margin: 0 0 0 0;
+            max-width: 100%;
+            border: 1px solid rgba(0,59,111,0.08);
+        }
+        .sobre-foto-wrapper .consultorio-slider::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 1.4rem;
+            box-shadow: inset 0 0 60px rgba(0,0,0,0.10);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .sobre-foto-wrapper .consultorio-slide img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            object-position: center 55%;
+            filter: brightness(1.07) contrast(1.06) saturate(1.14);
+            transition: transform 0.6s ease, filter 0.4s ease;
+        }
+        .sobre-foto-wrapper .slider-dots {
+            background: rgba(0,59,111,0.06);
+            padding: 10px 0;
+        }
 
-            .mob-ver{
-                display:block;
-            }
+        /* Card de agendamento flutuante sobre o slider */
+        .agendar-card {
+            position: absolute;
+            bottom: 52px;        /* acima dos dots */
+            right: -18px;
+            background: var(--branco);
+            border-radius: 14px;
+            padding: 0.9rem 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 8px 32px rgba(0,59,111,0.22);
+            text-decoration: none;
+            color: var(--texto);
+            border: 1.5px solid rgba(0,59,111,0.10);
+            transition: var(--trans);
+            z-index: 10;
+            min-width: 210px;
+        }
+        .agendar-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(0,59,111,0.30);
+        }
+        .agendar-card-icone {
+            width: 42px;
+            height: 42px;
+            background: var(--azul-escuro);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .agendar-card-icone i {
+            color: var(--branco);
+            font-size: 1.05rem;
+        }
+        .agendar-card-texto {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            flex: 1;
+        }
+        .agendar-card-titulo {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--azul-escuro);
+            line-height: 1.2;
+        }
+        .agendar-card-sub {
+            font-size: 0.72rem;
+            color: var(--texto-suave);
+            font-weight: 400;
+        }
+        .agendar-card-seta {
+            color: var(--azul-claro);
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
 
-            .banner-texto h2 {
-                font-size: 2rem; /* Ajustado para melhor legibilidade em mobile */
-                margin-bottom:20px;
+        /* ─── Remove CSS antigo de .sobre-foto (não usado mais) ─── */
+        /* ─── Ajuste mobile para sobre-foto-wrapper ─── */
+        @media (max-width: 900px) {
+            .sobre-foto-wrapper {
+                width: 100%;
             }
-
-            .banner-texto p {
-                font-size: 1.2rem; /* Ajustado para melhor legibilidade em mobile */
-                margin-bottom:10px;
+            .sobre-foto-wrapper .consultorio-slide img {
+                height: 280px;
             }
-
-            .banner-imagem img {
-                height: 350px;
-            }
-
-            .sobre-mim-conteudo {
-                padding: 0.25rem;
-            }
-
-            .sobre-mim-slide h1 .sobre-mim-slide h2 .sobre-mim-slide h3{
-                margin-bottom:5px;
-            }
-
-            .sobre-mim-slide h3 {
-                font-size: 1.5rem; /* Ajustado para melhor legibilidade em mobile */
-            }
-
-            .sobre-mim-slide p {
-                font-size: 1.0rem; /* Ajustado para melhor legibilidade em mobile */
-                margin-bottom:20px;
-            }
-
-            .grid-desafios {
-                grid-template-columns: 1fr;
-            }
-
-            .card-desafio {
-                padding: 1rem;
-            }
-
-            .card-desafio i {
-                font-size: 1.5rem;
-            }
-
-            .metodo-item i {
-                font-size: 1.5rem;
+            .agendar-card {
+                right: 8px;
+                bottom: 48px;
             }
         }
 
-        @media (max-width: 768px) {
-            .grid-desafios {
-                grid-template-columns: repeat(2, 1fr);
-            }
+
+        /* ─── SESSÕES: novo layout split ─── */
+        .sessoes-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        @media (max-width: 480px) {
-            .grid-desafios {
-                grid-template-columns: 1fr;
-            }
+        .sessoes-esquerda { }
+
+        .sessoes-cards-compactos {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
+
+        .sessao-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 1.2rem;
+            background: var(--areia);
+            border-radius: 12px;
+            transition: var(--trans);
+        }
+        .sessao-item:hover { background: var(--areia-escura); }
+
+        .sessao-item-icon {
+            width: 40px; height: 40px;
+            background: var(--azul-escuro);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .sessao-item-icon i { color: var(--branco); font-size: 0.95rem; }
+
+        .sessao-item h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--azul-escuro);
+            margin-bottom: 0.25rem;
+        }
+        .sessao-item p {
+            font-size: 0.85rem;
+            color: var(--texto-suave);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Slider direito dentro das sessões */
+        .sessoes-slider-wrapper { position: relative; }
+
+        .sessoes-slider-wrapper .consultorio-slider {
+            border-radius: 1.4rem;
+            overflow: hidden;
+            box-shadow: 0 16px 56px rgba(0,59,111,0.22);
+            margin: 0;
+            max-width: 100%;
+            position: relative;
+            border: 1px solid rgba(0,59,111,0.08);
+        }
+
+        .sessoes-slider-wrapper .consultorio-slide img {
+            width: 100%;
+            height: 440px;
+            object-fit: cover;
+            object-position: center 55%;
+            filter: brightness(1.05) contrast(1.05) saturate(1.1);
+            display: block;
+        }
+
+        /* Overlay escuro sobre a imagem */
+        .slider-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 30, 55, 0.48) 0%,
+                rgba(0, 30, 55, 0.10) 50%,
+                rgba(0, 30, 55, 0.32) 100%
+            );
+            z-index: 3;
+            pointer-events: none;
+            border-radius: 1.4rem;
+        }
+
+        /* Card agendar: centralizado no topo da imagem */
+        .sessoes-slider-wrapper .agendar-card {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            right: auto;
+            bottom: auto;
+            background: rgba(255,255,255,0.96);
+            border-radius: 14px;
+            padding: 0.8rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 6px 28px rgba(0,59,111,0.28);
+            text-decoration: none;
+            color: var(--texto);
+            border: 1.5px solid rgba(0,59,111,0.10);
+            transition: var(--trans);
+            z-index: 10;
+            white-space: nowrap;
+        }
+        .sessoes-slider-wrapper .agendar-card:hover {
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 12px 36px rgba(0,59,111,0.34);
+        }
+
+        .sessoes-slider-wrapper .slider-dots {
+            background: rgba(0,0,0,0.25);
+            padding: 10px 0;
+            position: relative;
+            z-index: 5;
+        }
+        .sessoes-slider-wrapper .dot { background: rgba(255,255,255,0.5); }
+        .sessoes-slider-wrapper .dot.ativo { background: var(--branco); }
+
+        /* ─── ATENDIMENTO BLOCO: mapa + duo cards ─── */
+        .atendimento-bloco {
+            background: var(--areia);
+            padding: 4rem 5% 5rem;
+            margin-top: 0;
+        }
+
+        .mapa-banner {
+            width: 100%;
+            height: 300px;
+            border-radius: 1.2rem;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,59,111,0.14);
+            margin-bottom: 2rem;
+            position: relative;
+            border: 1px solid rgba(0,59,111,0.08);
+        }
+        .mapa-banner iframe {
+            width: 100%; height: 100%; border: 0; display: block;
+        }
+        .mapa-tag {
+            position: absolute;
+            bottom: 14px; left: 50%; transform: translateX(-50%);
+            background: var(--azul-escuro);
+            color: var(--branco);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: flex; align-items: center; gap: 0.5rem;
+            white-space: nowrap;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+            z-index: 5;
+        }
+        .mapa-tag i { color: #f87171; }
+
+        .atendimento-duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .at-duo-card {
+            background: var(--branco);
+            border-radius: var(--r-card);
+            padding: 1.6rem 1.8rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.1rem;
+            box-shadow: var(--sombra);
+            transition: var(--trans);
+        }
+        .at-duo-card:hover { transform: translateY(-3px); box-shadow: var(--sombra-md); }
+
+        .at-duo-icon {
+            width: 46px; height: 46px;
+            background: var(--azul-escuro);
+            border-radius: 11px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .at-duo-icon i { color: var(--branco); font-size: 1.1rem; }
+
+        .at-duo-card h3 {
+            font-family: var(--fonte-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--azul-escuro);
+            margin-bottom: 0.4rem;
+        }
+        .at-duo-card p {
+            font-size: 0.9rem;
+            color: var(--texto-suave);
+            line-height: 1.7;
+            margin: 0;
+        }
+        .at-duo-card a { color: var(--azul-medio); font-weight: 500; }
+
+        /* ─── Mobile para sessões ─── */
+        @media (max-width: 900px) {
+            .sessoes-layout { grid-template-columns: 1fr; gap: 2rem; }
+            .sessoes-slider-wrapper .consultorio-slide img { height: 300px; }
+            .atendimento-duo { grid-template-columns: 1fr; }
+            .mapa-banner { height: 220px; }
+        }
+
     </style>
 </head>
 <body>
-    <header class="faixa-inicial">
-        <nav>
-            <div class="logo">
-                <h1>Iago Benacci</h1>
-                <div class="subtitle">
-                    <span>Psicólogo Terapeuta</span>
-                    <span>CRP 06/135768</span>
-                </div>
-            </div>
-        </nav>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-logo">
+            <h1>Iago Benacci</h1>
+            <span>Psicólogo · CRP 06/135768</span>
+        </div>
+        <ul class="header-nav">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#sessoes">Sessões</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#atendimento">Atendimento</a></li>
+        </ul>
+        <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta." class="header-cta">
+            <i class="fab fa-whatsapp"></i>
+            <span>Fale comigo</span>
+        </a>
     </header>
 
-    <section class="banner">
-        <div class="banner-container">
-            <div class="banner-texto pc-ver">
-                <h2>Iago Benacci</h2>
-                <h3>Psicólogo CRP 06/135768</h2>
-                <p>Sente que não está conseguindo lidar com tudo por conta própria? <strong>Eu te ajudo!</strong></p>
-                <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta.">
-                    <button class="cta-button pc-ver">Agende sua Consulta <i class="fa fa-whatsapp logo-whatsapp" style="font-size:30px; color:#25D366"></i></button>
-                </a>
-            </div>
-            <div class="banner-imagem">
-                <img src="img/perfil.png" alt="Iago Benacci">
-            </div>
-            <div class="banner-texto mob-ver">
-                <h2>Iago Benacci</h2>
-                <h3>Psicólogo CRP 06/135768</h2>
-                <p>Sente que não está conseguindo lidar por conta própria? <strong>Eu te ajudo!</strong></p>
-            </div>
-            <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta." class="cta-link">
-                <button class="cta-button mob-ver">Agende sua Consulta <i class="fa fa-whatsapp logo-whatsapp" style="font-size:30px; color:#25D366"></i></button>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-detalhe" aria-hidden="true"></div>
+        <div class="hero-texto">
+            <span class="hero-eyebrow">Psicólogo Clínico · Itapira-SP</span>
+            <h2 class="hero-titulo">
+                Um espaço seguro para <em>cuidar de quem você é</em>
+            </h2>
+            <p class="hero-subtitulo">
+                Atendimento para adultos, adolescentes e casais — presencial em Itapira-SP e online para todo o Brasil.
+            </p>
+            <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta." class="hero-cta">
+                <i class="fab fa-whatsapp wpp-icon"></i>
+                Agende sua Consulta
             </a>
         </div>
+        <div class="hero-imagem">
+            <img src="img/perfil.png" alt="Iago Benacci, Psicólogo">
+        </div>
     </section>
 
-    <section class="sobre-mim">
-        <div class="sobre-mim-conteudo">
-            <div class="sobre-mim-container">
-                <div class="sobre-mim-slide ativo">
-                    <h3>Sobre Mim</h3>
-                    <p><strong>Psicólogo</strong> especializado em ajudar pessoas a superar desafios emocionais e alcançar seu <strong>potencial máximo</strong>.</p>
+    <!-- COMO POSSO TE AJUDAR -->
+    <section class="secao como-ajudar" id="ajudar">
+        <div class="secao-inner">
+            <div class="ajudar-grid">
+                <div>
+                    <h2 class="titulo-secao">Como posso <em>te ajudar?</em></h2>
+                    <p class="subtitulo-secao">
+                        A terapia é um espaço de autoconhecimento onde você aprende a compreender e ressignificar sua história — com mais consciência e autenticidade.
+                    </p>
+                    <ul class="ajudar-lista">
+                        <li><i class="fas fa-brain"></i> Ansiedade e estresse do cotidiano</li>
+                        <li><i class="fas fa-heart-crack"></i> Depressão e questões emocionais</li>
+                        <li><i class="fas fa-people-arrows"></i> Relacionamentos e comunicação</li>
+                        <li><i class="fas fa-person-rays"></i> Autoestima e desenvolvimento pessoal</li>
+                        <li><i class="fas fa-seedling"></i> Crescimento e autonomia emocional</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta." class="ajudar-cta">
+                        <i class="fab fa-whatsapp wpp-icon"></i>
+                        Fale com o Psicólogo
+                    </a>
                 </div>
-                <div class="sobre-mim-slide">
-                    <h3>Públicos que Atendo</h3>
-                    <p>Trabalho com <strong>adultos</strong>, <strong>adolescentes</strong> e <strong>casais</strong>, ajudando a lidar com questões como ansiedade, depressão, relacionamentos e <strong>desenvolvimento pessoal</strong>. </p>
+                <div class="ajudar-texto-bloco">
+                    <p>
+                        Você não precisa enfrentar tudo sozinho. <strong>A terapia não é para quem está "muito mal"</strong> — é para qualquer pessoa que deseja se entender melhor e viver de forma mais plena.
+                    </p>
+                    <p>
+                        No processo terapêutico, trabalhamos juntos, sem julgamentos, respeitando o seu tempo e sua individualidade.
+                    </p>
+                    <p>
+                        Se você sente que não está conseguindo lidar com as coisas por conta própria, <strong>esse é exatamente o momento certo de buscar apoio.</strong>
+                    </p>
                 </div>
-                <div class="sobre-mim-slide">
-                    <h3>Tipos de Atendimento</h3>
-                    <p>Ofereço atendimento <strong>presencial</strong> em Itapira-SP e <strong>online</strong> para todo o Brasil.</p>
-                </div>
-            </div>
-            <div class="sobre-mim-navegacao">
-                <div class="sobre-mim-bolinha ativa" data-slide="0"></div>
-                <div class="sobre-mim-bolinha" data-slide="1"></div>
-                <div class="sobre-mim-bolinha" data-slide="2"></div>
             </div>
         </div>
     </section>
 
-    <section class="faixa-2" id="desafios">
-        <div class="grid-desafios">
-            <div class="card-desafio">
-                <i class="fas fa-brain"></i>
-                <h4>Ansiedade</h4>
-            </div>
-            <div class="card-desafio">
-                <i class="fas fa-heartbeat"></i>
-                <h4>Depressão</h4>
-            </div>
-            <div class="card-desafio">
-                <i class="fas fa-hands-helping"></i>
-                <h4>Relacionamentos</h4>
+    <!-- SOBRE MIM -->
+    <section class="secao sobre" id="sobre">
+        <div class="secao-inner">
+            <div class="sobre-grid">
+                <div class="sobre-foto">
+                    <img src="img/perfil.png" alt="Iago Benacci">
+                </div>
+                <div class="sobre-conteudo">
+                    <h2 class="titulo-secao">Sobre <em>Mim</em></h2>
+                    <p>
+                        Olá, seja muito bem-vindo! Sou <strong>Iago Benacci</strong>, psicólogo clínico (CRP 06/135768) especializado em ajudar pessoas a superar desafios emocionais e alcançar seu <strong>potencial máximo</strong>.
+                    </p>
+                    <p>
+                        Atendo <strong>adultos, adolescentes e casais</strong> que buscam trabalhar questões como ansiedade, depressão, autoestima, relacionamentos e desenvolvimento pessoal. Acredito em uma clínica ética, com sigilo, cuidado e escuta atenta — respeitando sempre a sua história e o seu ritmo.
+                    </p>
+                    <p>
+                        Ofereço atendimento <strong>presencial em Itapira-SP</strong> e <strong>online para todo o Brasil</strong>. Em nosso primeiro encontro, realizo uma entrevista inicial para nos conhecermos e alinhar as expectativas do processo.
+                    </p>
+                    <div class="sobre-tags">
+                        <span class="sobre-tag">Adultos</span>
+                        <span class="sobre-tag">Adolescentes</span>
+                        <span class="sobre-tag">Casais</span>
+                        <span class="sobre-tag">Ansiedade</span>
+                        <span class="sobre-tag">Depressão</span>
+                        <span class="sobre-tag">Relacionamentos</span>
+                        <span class="sobre-tag">Autoestima</span>
+                    </div>
+                    <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta." class="btn btn-primario">
+                        <i class="fab fa-whatsapp" style="color:var(--verde-wpp)"></i>
+                        Agende uma Conversa
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="faixa-3" id="abordagem">
-        <div class="abordagem-container">
-            <!-- Nova seção sobre tipos de atendimento -->
-            <div class="tipos-atendimento">
-                <div class="atendimento-container">
-                    <div class="atendimento-item">
-                        <i class="fas fa-user-friends"></i>
-                        <h4>Atendimento Presencial</h4>
-                        <p>Realizado no meu consultório em Itapira-SP, <strong><a href="https://www.google.com/maps?q=Rua+Exemplo,+123,+São+Paulo,+SP">Rua Sebastião da Rosa Pinheiro, nº 42.</a></strong></p>
-                    </div>
+    <!-- COMO FUNCIONAM AS SESSÕES -->
+    <section class="secao sessoes" id="sessoes" style="padding-bottom:0;">
+        <div class="secao-inner sessoes-layout">
 
-                    <div class="consultorio-slider mob-ver">
-                        <div class="consultorio-container">
-                            <div class="consultorio-slide ativo">
-                                <img src="img/consultorio1.jpg" alt="Consultório 1">
-                            </div>
-                            <div class="consultorio-slide">
-                                <img src="img/consultorio2.jpg" alt="Consultório 2">
-                            </div>
-                            <div class="consultorio-slide">
-                                <img src="img/consultorio3.jpg" alt="Consultório 3">
-                            </div>
-                            <div class="consultorio-slide">
-                                <img src="img/consultorio4.jpg" alt="Consultório 4">
-                            </div>
-                        </div>
-                        <div class="consultorio-navegacao">
-                            <div class="consultorio-bolinha ativa" data-slide="0"></div>
-                            <div class="consultorio-bolinha" data-slide="1"></div>
-                            <div class="consultorio-bolinha" data-slide="2"></div>
-                            <div class="consultorio-bolinha" data-slide="3"></div>
+            <!-- Coluna esquerda: título + cards compactos -->
+            <div class="sessoes-esquerda">
+                <h2 class="titulo-secao">Como funcionam <em>as Sessões?</em></h2>
+                <p class="subtitulo-secao" style="margin-bottom:1.6rem;">
+                    Você escolhe o formato que melhor se adapta à sua rotina.
+                </p>
+                <div class="sessoes-cards-compactos">
+                    <div class="sessao-item">
+                        <div class="sessao-item-icon"><i class="fas fa-calendar-check"></i></div>
+                        <div>
+                            <h4>Entrevista Inicial</h4>
+                            <p>Primeiro contato para nos conhecermos, entender sua queixa e alinhar horários e pagamento.</p>
                         </div>
                     </div>
-                    
-                    <div class="atendimento-item">
-                        <i class="fas fa-laptop"></i>
-                        <h4>Atendimento Online</h4>
-                        <p>Sessões realizadas pela plataforma <strong><a href="https://www.zoom.com/pt"> ZOOM.</a></strong> </br><strong>Nenhuma sessão é gravada</strong>.</p>
+                    <div class="sessao-item">
+                        <div class="sessao-item-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h4>Duração e Frequência</h4>
+                            <p>Sessões de <strong>50 minutos</strong>, realizadas <strong>semanalmente</strong>, podendo ser mais de uma vez por semana.</p>
+                        </div>
+                    </div>
+                    <div class="sessao-item">
+                        <div class="sessao-item-icon"><i class="fas fa-file-invoice"></i></div>
+                        <div>
+                            <h4>Sobre Convênios</h4>
+                            <p>Não atendo convênio, mas emito <strong>Nota Fiscal</strong> para reembolso e Imposto de Renda.</p>
+                        </div>
                     </div>
                 </div>
-                <!-- Slider de imagens do consultório -->
-                <div class="consultorio-slider pc-ver">
-                    <div class="consultorio-container">
-                        <div class="consultorio-slide ativo">
-                            <img src="img/consultorio1.jpg" alt="Consultório 1">
+                <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta." class="btn btn-wpp" style="margin-top:1.8rem;">
+                    <i class="fab fa-whatsapp"></i>
+                    Agende sua Entrevista
+                </a>
+            </div>
+
+            <!-- Coluna direita: slider com overlay escuro + card de agendar centralizado no topo -->
+            <div class="sessoes-slider-wrapper">
+                <div class="consultorio-slider" id="sessoes-slider">
+                    <div class="consultorio-track" id="sliderTrack">
+                        <div class="consultorio-slide">
+                            <img src="img/consultorio2.jpg" alt="Consultório - Sala de atendimento">
                         </div>
                         <div class="consultorio-slide">
-                            <img src="img/consultorio2.jpg" alt="Consultório 2">
+                            <img src="img/consultorio1.jpg" alt="Consultório - Vista da sala">
                         </div>
                         <div class="consultorio-slide">
-                            <img src="img/consultorio3.jpg" alt="Consultório 3">
-                        </div>
-                        <div class="consultorio-slide">
-                            <img src="img/consultorio4.jpg" alt="Consultório 4">
+                            <img src="img/consultorio3.jpg" alt="Consultório - Ambiente acolhedor">
                         </div>
                     </div>
-                    <div class="consultorio-navegacao">
-                        <div class="consultorio-bolinha ativa" data-slide="0"></div>
-                        <div class="consultorio-bolinha" data-slide="1"></div>
-                        <div class="consultorio-bolinha" data-slide="2"></div>
-                        <div class="consultorio-bolinha" data-slide="3"></div>
+                    <!-- Overlay escuro -->
+                    <div class="slider-overlay"></div>
+                    <!-- Card agendar centrado no topo da imagem -->
+                    <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20agendar%20uma%20consulta." class="agendar-card" target="_blank">
+                        <div class="agendar-card-icone">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="agendar-card-texto">
+                            <span class="agendar-card-titulo">Agende sua Consulta</span>
+                            <span class="agendar-card-sub">Presencial ou Online</span>
+                        </div>
+                        <i class="fas fa-arrow-right agendar-card-seta"></i>
+                    </a>
+                    <div class="slider-dots" id="sliderDots">
+                        <div class="dot ativo" data-idx="0"></div>
+                        <div class="dot" data-idx="1"></div>
+                        <div class="dot" data-idx="2"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Mapa Google + Cards presencial/online abaixo -->
+        <div class="atendimento-bloco">
+            <div class="secao-inner">
+                <!-- Banner mapa -->
+                <div class="mapa-banner">
+                    <iframe
+                        src="https://maps.google.com/maps?q=Rua+Sebastião+da+Rosa+Pinheiro,+42,+Itapira,+SP&t=m&z=16&output=embed&iwloc=near"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" title="Localização do consultório">
+                    </iframe>
+                    <div class="mapa-tag">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Rua Sebastião da Rosa Pinheiro, 42 — Itapira-SP
+                    </div>
+                </div>
+
+                <!-- Cards online / presencial -->
+                <div class="atendimento-duo">
+                    <div class="at-duo-card">
+                        <div class="at-duo-icon"><i class="fas fa-user-friends"></i></div>
+                        <div>
+                            <h3>Atendimento Presencial</h3>
+                            <p>Consultório particular em <a href="https://www.google.com/maps?q=Rua+Sebastião+da+Rosa+Pinheiro,+42,+Itapira,+SP"><strong>Itapira-SP</strong></a>, em ambiente seguro, confortável e reservado.</p>
+                        </div>
+                    </div>
+                    <div class="at-duo-card">
+                        <div class="at-duo-icon"><i class="fas fa-laptop"></i></div>
+                        <div>
+                            <h3>Atendimento Online</h3>
+                            <p>Via <a href="https://www.zoom.com/pt"><strong>ZOOM</strong></a>, para qualquer cidade do Brasil. Sessões agendadas previamente — <strong>sem gravação</strong> e com total sigilo.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Botão CTA centralizado após a seção de tipos de atendimento -->
-    <div class="cta-centralizado">
-        <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta.">
-            <button class="cta-button">Agende sua Consulta <i class="fa fa-whatsapp logo-whatsapp" style="font-size:30px; color:#25D366"></i></button>
-        </a>
-    </div>
-
-    <section class="faixa-final">
-        <div>
-            <p>© 2025 Iago Benacci | CRP 06/135768</p>
-            <div style="margin-top: 1rem;">
-                <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta."><i class="fab fa-whatsapp"></i></a>
-                <a href="https://www.instagram.com/iagobenaccipsicologo/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <!-- DEPOIMENTOS -->
+    <section class="depoimentos" id="depoimentos">
+        <div class="secao-inner">
+            <h2 class="titulo-secao">O que dizem <em>meus pacientes</em></h2>
+            <p class="subtitulo-secao">Relatos reais de pessoas que passaram pelo processo terapêutico.</p>
+            <div class="depoimentos-grid">
+                <div class="depoimento-card">
+                    <div class="depoimento-estrelas">★★★★★</div>
+                    <p class="depoimento-texto">"Comecei a terapia em um momento muito difícil e o Iago me ajudou a enxergar as coisas de outra forma. A escuta atenta e a ausência de julgamentos me deram segurança para falar o que nunca havia falado com ninguém."</p>
+                    <span class="depoimento-autor">— Paciente</span>
+                </div>
+                <div class="depoimento-card">
+                    <div class="depoimento-estrelas">★★★★★</div>
+                    <p class="depoimento-texto">"O processo terapêutico com o Iago tem sido transformador. Aprendi a lidar com minha ansiedade e a me conhecer melhor. Recomendo de coração para qualquer pessoa que esteja buscando apoio."</p>
+                    <span class="depoimento-autor">— Paciente</span>
+                </div>
+                <div class="depoimento-card">
+                    <div class="depoimento-estrelas">★★★★★</div>
+                    <p class="depoimento-texto">"A terapia online funcionou perfeitamente. Consegui me sentir acolhido mesmo à distância. O Iago é muito profissional e sabe conduzir as sessões de forma tranquila e instigante."</p>
+                    <span class="depoimento-autor">— Paciente</span>
+                </div>
+                <div class="depoimento-card">
+                    <div class="depoimento-estrelas">★★★★★</div>
+                    <p class="depoimento-texto">"Em pouco tempo de terapia já sinto diferença no meu dia a dia. Estou mais consciente das minhas emoções e das minhas escolhas. Uma experiência de autoconhecimento que recomendo!"</p>
+                    <span class="depoimento-autor">— Paciente</span>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top: 2.5rem;">
+                <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta." class="btn btn-wpp">
+                    <i class="fab fa-whatsapp"></i>
+                    Quero começar também
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Botão Flutuante do WhatsApp -->
-    <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta." class="whatsapp-float" target="_blank">
-        <i class="fa fa-whatsapp"></i>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-logo">
+            Iago Benacci
+            <span>Psicólogo · CRP 06/135768</span>
+        </div>
+        <p class="footer-copy">© 2025 Iago Benacci. Todos os direitos reservados.</p>
+        <div class="footer-social">
+            <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta." aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/iagobenaccipsicologo/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Flutuante -->
+    <a href="https://api.whatsapp.com/send?phone=5519971080508&text=Olá!%20Vim%20pelo%20site!%20Gostaria%20de%20mais%20informações%20sobre%20a%20consulta." class="wpp-float" target="_blank" aria-label="Fale pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        // Função para detectar o gesto de deslize (swipe)
-        function setupSwipe(slidesContainer, nextSlideFunction, prevSlideFunction) {
-            let touchStartX = 0;
-            let touchEndX = 0;
+        // ─── Slider do consultório ───
+        const track  = document.getElementById('sliderTrack');
+        const dots   = document.querySelectorAll('#sliderDots .dot');
+        let current  = 0;
 
-            slidesContainer.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            });
+        function goTo(idx) {
+            current = (idx + total) % total;
+            track.style.transform = `translateX(-${current * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle('ativo', i === current));
+        }
 
-            slidesContainer.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            });
+        dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
 
-            function handleSwipe() {
-                const swipeThreshold = 50; // Sensibilidade do deslize
-                if (touchEndX < touchStartX - swipeThreshold) {
-                    nextSlideFunction();
-                } else if (touchEndX > touchStartX + swipeThreshold) {
-                    prevSlideFunction();
+        // Auto-play
+        const total = dots.length;
+setInterval(() => goTo(current + 1), 4500);
+
+        // Swipe
+        let tx = 0;
+        track.addEventListener('touchstart', e => { tx = e.changedTouches[0].screenX; });
+        track.addEventListener('touchend',   e => {
+            const diff = tx - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+        });
+
+        // ─── Scroll suave para links internos ───
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
-            }
-        }
-
-        // Script para o slider do "Sobre Mim"
-        const slides = document.querySelector('.sobre-mim-container');
-        const bolinhas = document.querySelectorAll('.sobre-mim-bolinha');
-        let currentSlide = 0;
-
-        function mudarSlide(index) {
-            document.querySelectorAll('.sobre-mim-slide').forEach(slide => {
-                slide.classList.remove('ativo');
-            });
-            document.querySelectorAll('.sobre-mim-slide')[index].classList.add('ativo');
-            bolinhas.forEach((bolinha, i) => {
-                bolinha.classList.toggle('ativa', i === index);
-            });
-            currentSlide = index;
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % 3;
-            mudarSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + 3) % 3;
-            mudarSlide(currentSlide);
-        }
-
-        setupSwipe(slides, nextSlide, prevSlide);
-
-        bolinhas.forEach((bolinha, index) => {
-            bolinha.addEventListener('click', () => {
-                mudarSlide(index);
             });
         });
-
-        // Script para o slider do consultório
-        const consultorioSlides = document.querySelector('.consultorio-container');
-        const consultorioBolinhas = document.querySelectorAll('.consultorio-bolinha');
-        let currentConsultorioSlide = 0;
-
-        function mudarConsultorioSlide(index) {
-            document.querySelectorAll('.consultorio-slide').forEach(slide => {
-                slide.classList.remove('ativo');
-            });
-            document.querySelectorAll('.consultorio-slide')[index].classList.add('ativo');
-            consultorioBolinhas.forEach((bolinha, i) => {
-                bolinha.classList.toggle('ativa', i === index);
-            });
-            currentConsultorioSlide = index;
-        }
-
-        function nextConsultorioSlide() {
-            currentConsultorioSlide = (currentConsultorioSlide + 1) % 4;
-            mudarConsultorioSlide(currentConsultorioSlide);
-        }
-
-        function prevConsultorioSlide() {
-            currentConsultorioSlide = (currentConsultorioSlide - 1 + 4) % 4;
-            mudarConsultorioSlide(currentConsultorioSlide);
-        }
-
-        setupSwipe(consultorioSlides, nextConsultorioSlide, prevConsultorioSlide);
-
-        consultorioBolinhas.forEach((bolinha, index) => {
-            bolinha.addEventListener('click', () => {
-                mudarConsultorioSlide(index);
-            });
-        });
-
-        // Adicionando setas invisíveis
-        function addInvisibleArrows(container, nextFunction, prevFunction) {
-            const leftArrow = document.createElement('div');
-            leftArrow.style.position = 'absolute';
-            leftArrow.style.left = '10px';
-            leftArrow.style.top = '50%';
-            leftArrow.style.transform = 'translateY(-50%)';
-            leftArrow.style.width = '50px';
-            leftArrow.style.height = '50px';
-            leftArrow.style.cursor = 'pointer';
-            leftArrow.style.zIndex = '1000';
-            leftArrow.addEventListener('click', prevFunction);
-
-            const rightArrow = document.createElement('div');
-            rightArrow.style.position = 'absolute';
-            rightArrow.style.right = '10px';
-            rightArrow.style.top = '50%';
-            rightArrow.style.transform = 'translateY(-50%)';
-            rightArrow.style.width = '50px';
-            rightArrow.style.height = '50px';
-            rightArrow.style.cursor = 'pointer';
-            rightArrow.style.zIndex = '1000';
-            rightArrow.addEventListener('click', nextFunction);
-
-            container.appendChild(leftArrow);
-            container.appendChild(rightArrow);
-        }
-
-        addInvisibleArrows(slides.parentElement, nextSlide, prevSlide);
-        addInvisibleArrows(consultorioSlides.parentElement, nextConsultorioSlide, prevConsultorioSlide);
     </script>
 </body>
 </html>
